@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <resume>
 
@@ -28,7 +28,8 @@
     <degrees>
       <degree>
         <university>University of Alberta</university>
-        <degree>Computer Engineering</degree>
+        <major>Computer Engineering</major>
+        <year>4th Year</year>
         <GPA>3.6 / 4</GPA>
         <startdate>September 2014</startdate>
         <enddate>June 2019</enddate>
