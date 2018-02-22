@@ -12,6 +12,7 @@
     <contact>
       <email>zafra@ualberta.ca</email>
       <phone>7808853696</phone>
+      <website>http://www.lorenzozafra.com</website>
     </contact>
 
     <address>
@@ -24,27 +25,38 @@
   </information>
 
   <education>
-    <university>University of Alberta</university>
-    <degree>Computer Engineering</degree>
-    <GPA>3.6 / 4</GPA>
-    <startdate>September 2014</startdate>
-    <enddate>June 2019</enddate>
+    <degrees>
+      <degree>
+        <university>University of Alberta</university>
+        <degree>Computer Engineering</degree>
+        <GPA>3.6 / 4</GPA>
+        <startdate>September 2014</startdate>
+        <enddate>June 2019</enddate>
+      </degree>
+    </degrees>
   </education>
 
   <workexperience>
-
-    <term1>
+    <workterm>
       <company>City of Edmonton - Edmonton Transit Service</company>
       <position>Communications Engineering Student</position>
       <jobdescription>
         Implemented a network monitoring system (NMS) for over 10000 network devices.
         Developed modules and support for various devices for LibreNMS - an open source NMS
       </jobdescription>
-      <startdate>January 2017</startdate>
-      <enddate>September 2017</enddate>
-    </term1>
+      <period>
+        <startdate>
+          <month>January</month>
+          <year>2017</year>
+        </startdate>
+        <enddate>
+          <month>September</month>
+          <year>2017</year>
+        </enddate>
+      </period>
+    </workterm>
 
-    <term2>
+    <workterm>
       <company>MegaSys Computer Technologies</company>
       <position>Software Developer and Quality Assurance Student</position>
       <jobdescription>
@@ -52,9 +64,17 @@
         network devices into an SQL database for a user to query and print information to send to
         clients.
       </jobdescription>
-      <startdate>April 2016</startdate>
-      <enddate>September 2016</enddate>
-    </term2>
+      <period>
+        <startdate>
+          <month>April</month>
+          <year>2016</year>
+        </startdate>
+        <enddate>
+          <month>September</month>
+          <year>2016</year>
+        </enddate>
+      </period>
+    </workterm>
 
   </workexperience>
 
