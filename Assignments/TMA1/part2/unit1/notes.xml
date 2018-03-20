@@ -3,13 +3,21 @@
 <notes>
 
   <note>
-    <topic>Web</topic>
+    <topic>Web History</topic>
     <data>Moore's Law is a trend that states: Every year or two, the capacities of computers have doubled inexpensively</data>
     <data>Computers and the Internet are being used in industry, research, health care, social good, communication, entertainment and more...</data>
     <data>A bit is the smallest data item in a computer; it can have the value of 0 or 1</data>
     <data>ARPANET allowed multiple users to send and receive information simultaneously over the same communication path</data>
     <data>The ARPANET network operated with a technique called packet switching, where data was sent in small bundles called packets</data>
     <data>The TCP/IP protocol for communicating over the ARPANET became known as Transmission Control Protocol (TCP)</data>
+    <data>In October 1994, the World Wide Web Consortium (W3C) organization was founded.</data>
+    <data>One of W3C's primary goals is to make the web universally accessible - regardless of disability, language or culture</data>
+    <data>Technologies standardized by W3C are called Recommendations</data>
+    <data>Current recommendations include HTML5, CSS and XML</data>
+  </note>
+
+  <note>
+    <topic>Web Servers</topic>
     <data>A web page is nothing more than an HTML document. When the user tries to access a website, a web server locates the requested html file and sends it to the user's browser</data>
     <data>HTML documents contain hyperlinks, which when clicked, loads a specified web document</data>
     <data>Hyperlinks can also reference e-mail addresses by addressing mailto:emailAddress instead of a webpage URL</data>
@@ -18,8 +26,15 @@
     <data>URL contains information that directs a browser to the resource that the user wishes to access</data>
     <data>When accessing a URL, a web browser sends an HTTP request to the server.</data>
     <data>The word GET is an HTTP method indicating that the client wishes to obtain a resource from the server</data>
+    <data>Browsers often cache recently viewed web pages for quick reloading</data>
+    <data>If there is no difference between the version of the web page in the cache vs. the version in the web server, your browsing experience is sped up</data>
     <data>The two most common HTTP request types are GET and POST</data>
     <data>A post request typically posts (or sends) data to the server</data>
+    <data>To request documents from web servers, users must know the hostnames on which the web server resides</data>
+    <data>Users can request documents from a local server or a remote server</data>
+    <data>Local web servers can be accessed through your computer's name or through 'localhost' which translates to IP Address: 127.0.0.1</data>
+    <data>The Apache HTTP Server is currently the most popular web server</data>
+    <data>To access an html file called 'example.html' in directory 'chapter/figure/' in the local server, you must access the URL of the form: 'http://localhost/example.html'</data>
   </note>
 
   <note>

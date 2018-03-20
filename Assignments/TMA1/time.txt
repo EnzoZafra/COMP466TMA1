@@ -1,1 +1,2 @@
 part1 = 5 hrs
+part2 = 2 hrs + 1 hr (showing results) + 30 mins (adding nots)
