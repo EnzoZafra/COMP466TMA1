@@ -7,21 +7,62 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 
-<body>
+<body class="grey lighten-2">
 
-<div class="section no-pad-bot" id="banner">
-  <!-- <div class="container"> -->
-  <div>
-    <h1 class="header center blue">COMP 466 Intro to Web Development</h1>
-    <div class="row center">
-      <h4 class="header col s12 light">Welcome to Unit 1, 2 and 3!</h4>
-      <p>This website will teach you some basics on a few web development courses such as: HTML5,
-        CSS3, Javascript, XML and Ajax. <br>To proceed, read each unit and complete the quiz at the end!
-      </p>
+  <div class="section no-pad-bot" id="banner">
+    <!-- <div class="container"> -->
+    <div>
+      <h1 class="header center teal-text text-lighten-2">COMP 466 Intro to Web Development</h1>
+      <div class="row center">
+        <h4 class="header col s12 light">Welcome to Unit 1, 2 and 3!</h4>
+        <p>This website will teach you some basics on a few web development topics such as:</p>
+        <ul>
+          <li>Unit 1:  Web, HTML5 and CSS</li>
+          <li>Unit 2:  Javascript</li>
+          <li>Unit 3:  XML and Ajax</li>
+        </ul>
+        <!-- <table> -->
+        <!--   <thead> -->
+        <!--     <tr> -->
+        <!--       <th>Unit</th> -->
+        <!--       <th>Topic</th> -->
+        <!--     </tr> -->
+        <!--   </thead> -->
+        <!--   <tbody> -->
+        <!--     <tr> -->
+        <!--       <th>Unit 1</th> -->
+        <!--       <th>Web, HTML5 and CSS</th> -->
+        <!--     </tr> -->
+        <!--     <tr> -->
+        <!--       <th>Unit 2</th> -->
+        <!--       <th>Javascript</th> -->
+        <!--     </tr> -->
+        <!--     <tr> -->
+        <!--       <th>Unit 3</th> -->
+        <!--       <th>XML and Ajax</th> -->
+        <!--     </tr> -->
+        <!--   </tbody> -->
+        <!-- </table> -->
+        <p>To proceed, read each unit and complete the quiz at the end!</p>
+      </div>
     </div>
   </div>
-</div>
+  <div class='center'>
+    <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Select a Unit</a>
 
+    <!-- Dropdown Structure -->
+    <ul id='dropdown1' class='dropdown-content'>
+      <li><a href="unit1/unit1.html">Unit1</a></li>
+      <li><a href="unit2/unit2.html">Unit2</a></li>
+      <li><a href="unit3/unit3.html">Unit3</a></li>
+    </ul>
+    <a class="waves-effect waves-light btn">Take the quiz</a>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
 </body>
 
 </html>
