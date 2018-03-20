@@ -1,0 +1,36 @@
+<?xml version="10"?>
+<?xml-stylesheet type="text/xsl" href="notesxsl"?>
+<notes>
+
+  <web>
+    <note>Moore's Law is a trend that states: Every year or two, the capacities of computers have doubled inexpensively</note>
+    <note>Computers and the Internet are being used in industry, research, health care, social good, communication, entertainment and more...</note>
+    <note>A bit is the smallest data item in a computer; it can have the value of 0 or 1</note>
+    <note>ARPANET allowed multiple users to send and receive information simultaneously over the same communication path</note>
+    <note>The ARPANET network operated with a technique called packet switching, where data was sent in small bundles called packets</note>
+    <note>The TCP/IP protocol for communicating over the ARPANET became known as Transmission Control Protocol (TCP)</note>
+    <note>A web page is nothing more than an HTML document. When the user tries to access a website, a web server locates the requested html file and sends it to the user's browser</note>
+    <note>HTML documents contain hyperlinks, which when clicked, loads a specified web document</note>
+    <note>Hyperlinks can also reference e-mail addresses by addressing mailto:emailAddress instead of a webpage URL</note>
+    <note>URIs (Uniform Resource Identifiers) identify resources on the internet</note>
+    <note>URIs that start with http:// are called URLs (Uniform Resource Locators)</note>
+    <note>URL contains information that directs a browser to the resource that the user wishes to access</note>
+    <note>When accessing a URL, a web browser sends an HTTP request to the server.</note>
+    <note>The word GET is an HTTP method indicating that the client wishes to obtain a resource from the server</note>
+    <note>The two most common HTTP request types are GET and POST</note>
+    <note>A post request typically posts (or sends) data to the server</note>
+  </web>
+
+  <html5>
+    <note>HTML5 is a special type of computer language called a markup language</note>
+    <note>It's designed to specify the content and structure of web pages in a portable manner</note>
+    <note>HTML enables developers to create content that will render across a range of devices such as phones, computers, and tablets</note>
+  </html5>
+
+  <css>
+    <note>Cascading Style Sheets (CSS) are used to specify the presentation or styling of elements on a web page</note>
+    <note>CSS was designed to style portable web pages independently of their content and structure</note>
+    <note>CSS allows the developer to easily change the look of the website by swapping out style sheets for another</note>
+  </css>
+
+</notes>

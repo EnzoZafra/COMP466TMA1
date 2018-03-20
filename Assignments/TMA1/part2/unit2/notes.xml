@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="notes.xsl"?>
+<notes>
+
+  <javascript>
+    <note>JavaScript helps a developer build dynamic web pages that can be modified "on the fly"</note>
+    <note>It enables develoeprs to do the client-side programming of web applications</note>
+    <note>JavaScript is a portable scripting language. Programms written in JS can be ran in web browsers across devices</note>
+  </javascript>
+
+</notes>
