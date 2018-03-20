@@ -3,52 +3,94 @@
 <notes>
 
   <note>
-    <topic>Web History</topic>
-    <data>Moore's Law is a trend that states: Every year or two, the capacities of computers have doubled inexpensively</data>
-    <data>Computers and the Internet are being used in industry, research, health care, social good, communication, entertainment and more...</data>
-    <data>A bit is the smallest data item in a computer; it can have the value of 0 or 1</data>
-    <data>ARPANET allowed multiple users to send and receive information simultaneously over the same communication path</data>
-    <data>The ARPANET network operated with a technique called packet switching, where data was sent in small bundles called packets</data>
-    <data>The TCP/IP protocol for communicating over the ARPANET became known as Transmission Control Protocol (TCP)</data>
-    <data>In October 1994, the World Wide Web Consortium (W3C) organization was founded.</data>
-    <data>One of W3C's primary goals is to make the web universally accessible - regardless of disability, language or culture</data>
-    <data>Technologies standardized by W3C are called Recommendations</data>
-    <data>Current recommendations include HTML5, CSS and XML</data>
-  </note>
+    <topic>Web</topic>
+    <subtopic>
+      <header>1.1 Web History</header>
+      <data>Moore's Law is a trend that states: Every year or two, the capacities of computers have doubled inexpensively</data>
+      <data>Computers and the Internet are being used in industry, research, health care, social good, communication, entertainment and more...</data>
+      <data>A bit is the smallest data item in a computer; it can have the value of 0 or 1</data>
+      <data>ARPANET allowed multiple users to send and receive information simultaneously over the same communication path</data>
+      <data>The ARPANET network operated with a technique called packet switching, where data was sent in small bundles called packets</data>
+      <data>The TCP/IP protocol for communicating over the ARPANET became known as Transmission Control Protocol (TCP)</data>
+      <data>In October 1994, the World Wide Web Consortium (W3C) organization was founded.</data>
+      <data>One of W3C's primary goals is to make the web universally accessible - regardless of disability, language or culture</data>
+      <data>Technologies standardized by W3C are called Recommendations</data>
+      <data>Current recommendations include HTML5, CSS and XML</data>
+    </subtopic>
 
-  <note>
-    <topic>Web Servers</topic>
-    <data>A web page is nothing more than an HTML document. When the user tries to access a website, a web server locates the requested html file and sends it to the user's browser</data>
-    <data>HTML documents contain hyperlinks, which when clicked, loads a specified web document</data>
-    <data>Hyperlinks can also reference e-mail addresses by addressing mailto:emailAddress instead of a webpage URL</data>
-    <data>URIs (Uniform Resource Identifiers) identify resources on the internet</data>
-    <data>URIs that start with http:// are called URLs (Uniform Resource Locators)</data>
-    <data>URL contains information that directs a browser to the resource that the user wishes to access</data>
-    <data>When accessing a URL, a web browser sends an HTTP request to the server.</data>
-    <data>The word GET is an HTTP method indicating that the client wishes to obtain a resource from the server</data>
-    <data>Browsers often cache recently viewed web pages for quick reloading</data>
-    <data>If there is no difference between the version of the web page in the cache vs. the version in the web server, your browsing experience is sped up</data>
-    <data>The two most common HTTP request types are GET and POST</data>
-    <data>A post request typically posts (or sends) data to the server</data>
-    <data>To request documents from web servers, users must know the hostnames on which the web server resides</data>
-    <data>Users can request documents from a local server or a remote server</data>
-    <data>Local web servers can be accessed through your computer's name or through 'localhost' which translates to IP Address: 127.0.0.1</data>
-    <data>The Apache HTTP Server is currently the most popular web server</data>
-    <data>To access an html file called 'example.html' in directory 'chapter/figure/' in the local server, you must access the URL of the form: 'http://localhost/example.html'</data>
+    <subtopic>
+      <header>1.2 Web Servers</header>
+      <data>A web page is nothing more than an HTML document. When the user tries to access a website, a web server locates the requested html file and sends it to the user's browser</data>
+      <data>HTML documents contain hyperlinks, which when clicked, loads a specified web document</data>
+      <data>Hyperlinks can also reference e-mail addresses by addressing mailto:emailAddress instead of a webpage URL</data>
+      <data>URIs (Uniform Resource Identifiers) identify resources on the internet</data>
+      <data>URIs that start with http:// are called URLs (Uniform Resource Locators)</data>
+      <data>URL contains information that directs a browser to the resource that the user wishes to access</data>
+      <data>When accessing a URL, a web browser sends an HTTP request to the server.</data>
+      <data>The word GET is an HTTP method indicating that the client wishes to obtain a resource from the server</data>
+      <data>Browsers often cache recently viewed web pages for quick reloading</data>
+      <data>If there is no difference between the version of the web page in the cache vs. the version in the web server, your browsing experience is sped up</data>
+      <data>The two most common HTTP request types are GET and POST</data>
+      <data>A post request typically posts (or sends) data to the server</data>
+      <data>To request documents from web servers, users must know the hostnames on which the web server resides</data>
+      <data>Users can request documents from a local server or a remote server</data>
+      <data>Local web servers can be accessed through your computer's name or through 'localhost' which translates to IP Address: 127.0.0.1</data>
+      <data>The Apache HTTP Server is currently the most popular web server</data>
+      <data>To access an html file called 'example.html' in directory 'chapter/figure/' in the local server, you must access the URL of the form: 'http://localhost/example.html'</data>
+    </subtopic>
   </note>
 
   <note>
     <topic>HTML5</topic>
-    <data>HTML5 is a special type of computer language called a markup language</data>
-    <data>It's designed to specify the content and structure of web pages in a portable manner</data>
-    <data>HTML enables developers to create content that will render across a range of devices such as phones, computers, and tablets</data>
+    <subtopic>
+      <header>1.1 General Information</header>
+      <data>HTML5 is a special type of computer language called a markup language</data>
+      <data>It's designed to specify the content and structure of web pages in a portable manner</data>
+      <data>HTML enables developers to create content that will render across a range of devices such as phones, computers, and tablets</data>
+      <data>The document type declaration (DOCTYPE) is required in HTML5 documents so that browsers render the page in standard mode</data>
+      <data>Comments in HTML5 start with &lt;!-- and end with --&gt; </data>
+      <data>The html element encloses the head section and the body section</data>
+      <data>The head section contains information about the HTML5 document, such as character set or the title of the page</data>
+      <data>The body section contains the page's content, which the browser displays when the user visits the page</data>
+      <data>HTML5 documents delimit most elements with a start tag (&lt;html&gt;) and end tag (&lt;/html&gt;)</data>
+      <data>Start tags may have attributes that provide additional information about the element. Each attribute has a name and value seperated by an equals sign (=)</data>
+    </subtopic>
+    <subtopic>
+      <header>1.2 Elements</header>
+      <data>Paragraph elements begin with &lt;p&gt; and end with &lt;/p&gt;</data>
+      <data>HTML5 provides six heading elements (h1 through h6) for specifiying relative importance of information. h1 is most significant while h6 is the least</data>
+      <data>The img element's src attribute specifies an image's location. Every image must have an alt attribute which contains text that is displayed if the client cannot render the image</data>
+      <data>Void elements contain only attributes and do not mark up text. Void elements are terminated by using a forward slash character (/) inside the start tag</data>
+      <data>Unordered lists begin with a &lt;ul&gt; and end with &lt;/ul&gt;</data>
+      <data>Each entry in the list is an li element</data>
+      <data>Ordered lists begin with a &lt;ol&gt; and end with &lt;/ol&gt;</data>
+      <data>HTML5 provides forms for collecting information from users</data>
+    </subtopic>
+    <subtopic>
+      <header>1.3 Forms</header>
+      <data>Form elements have a method attribute which specifies how the form's data is sent to the web server</data>
+      <data>The action attribute of the form specifies the script to which the form data will be sent</data>
+      <data>HTML allows linking to another section of the same document by specifiying the element's id as the link's href</data>
+      <data>See the appendix below for examples of HTML elements and form elements</data>
+    </subtopic>
   </note>
 
   <note>
     <topic>CSS</topic>
-    <data>Cascading Style Sheets (CSS) are used to specify the presentation or styling of elements on a web page</data>
-    <data>CSS was designed to style portable web pages independently of their content and structure</data>
-    <data>CSS allows the developer to easily change the look of the website by swapping out style sheets for another</data>
+    <subtopic>
+      <header>1.1 General Information</header>
+      <data>Cascading Style Sheets (CSS) are used to specify the presentation or styling of elements on a web page</data>
+      <data>CSS was designed to style portable web pages independently of their content and structure</data>
+      <data>CSS allows the developer to easily change the look of the website by swapping out style sheets for another</data>
+      <data>Each CSS property is followed by a colon and the value of the attribute</data>
+      <data>Styles that are placed in a style element use selectors to apply style elements throughout the entire document</data>
+    </subtopic>
+    <subtopic>
+      <header>1.2 Style Classes</header>
+      <data>Style-class declarations are preceded by a period (.)</data>
+      <data>Style Classes define styles that can be applied to any element</data>
+    </subtopic>
+
   </note>
 
 </notes>

@@ -19,14 +19,21 @@ xmlhttp.onload = function() {
     var h4 = document.createElement("h4");
     h4.innerHTML = children[i].getElementsByTagName("topic")[0].innerHTML;
     div.appendChild(h4);
-    var ul = document.createElement("ul");
-    div.appendChild(ul);
-    var child = children[i].getElementsByTagName("data");
-    for (j = 0; j < child.length; j++) {
-      var li = document.createElement("li");
-      li.className = "black-text collection-item";
-      li.innerHTML = child[j].innerHTML;
-      ul.appendChild(li);
+    var subtopics = children[i].getElementsByTagName("subtopic");
+    for (k = 0; k < subtopics.length; k++) {
+      var header = document.createElement("h5");
+      header.innerHTML = subtopics[k].getElementsByTagName("header")[0].innerHTML;
+      div.appendChild(header)
+      var ul = document.createElement("ul");
+      div.appendChild(ul);
+      var child = subtopics[k].getElementsByTagName("data");
+      for (j = 0; j < child.length; j++) {
+        var li = document.createElement("li");
+        li.className = "black-text collection-item";
+        li.innerHTML = child[j].innerHTML;
+        ul.appendChild(li);
+      }
+
     }
     document.write("<hr>");
   }
@@ -35,3 +42,37 @@ xmlhttp.onload = function() {
 var path = document.currentScript.getAttribute('file');
 xmlhttp.open("GET", path, false);
 xmlhttp.send();
+
+// $(document).ready(function () {
+//     $.ajax({
+//         type: "GET",
+//         url: path,
+//         cache: false,
+//         dataType: "xml",
+//         success: function(xml) {
+//           var xmlDoc = new DOMParser().parseFromString(xml, 'text/xml');
+
+//           var notes = xmlDoc.getElementsByTagName("notes")[0];
+//           var children = notes.getElementsByTagName("note");
+//           for (i=0; i < children.length; i++)
+//           {
+//             var div = document.createElement("div");
+//             div.className = "collection";
+//             document.body.appendChild(div);
+//             var h4 = document.createElement("h4");
+//             h4.innerHTML = children[i].getElementsByTagName("topic")[0].innerHTML;
+//             div.appendChild(h4);
+//             var ul = document.createElement("ul");
+//             div.appendChild(ul);
+//             var child = children[i].getElementsByTagName("data");
+//             for (j = 0; j < child.length; j++) {
+//               var li = document.createElement("li");
+//               li.className = "black-text collection-item";
+//               li.innerHTML = child[j].innerHTML;
+//               ul.appendChild(li);
+//             }
+//             document.write("<hr>");
+//           }
+//         }
+//     });
+// });
