@@ -4,7 +4,6 @@
     <title>Unit 1</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   </head>
 
   <nav class="grey darken-1" role="navigation">
@@ -20,8 +19,43 @@
 
   <body class="grey lighten-2">
 
-    <h3 class="teal-text text-lighten-3">Unit 1 - Web, HTML5 and CSS3</h3>
-    <hr>
+  <h3 class="teal-text text-lighten-3">Unit 1 - Web, HTML5 and CSS3</h3>
+  <hr>
+  <script>
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onload = function() {
+      var xmlDoc = new DOMParser().parseFromString(xmlhttp.responseText,'text/xml');
+
+      var notes = xmlDoc.getElementsByTagName("notes")[0];
+      var children = notes.getElementsByTagName("note")
+      console.log(children)
+      for (i=0; i < children.length; i++)
+      {
+        document.write("<h3>" + children[i].getElementsByTagName("topic")[0].innerHTML+"</h3>");
+        var ul = document.createElement("ul")
+        document.body.appendChild(ul);
+        var child = children[i].getElementsByTagName("data")
+        for (j = 0; j < child.length; j++) {
+          var li = document.createElement("li");
+          li.className = "data";
+          li.innerHTML = child[j].innerHTML
+          ul.appendChild(li)
+        }
+      }
+    }
+
+
+    xmlhttp.open("GET","notes.xml",false);
+    xmlhttp.send();
+
+  </script>
 
     <!-- <div> -->
     <!--   <h5>Web</h5> -->
@@ -36,9 +70,9 @@
     <!--   <h5>CSS3</h5> -->
     <!-- </div> -->
 
-    <div class="center">
-      <a class="waves-effect waves-light btn">Take the quiz</a>
-    </div>
+  <div class="center">
+    <a class="waves-effect waves-light btn">Take the quiz</a>
+  </div>
   </body>
 
 </html>
