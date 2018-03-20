@@ -5,14 +5,7 @@
         <xs:element name="information">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="name">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="xs:string" name="firstname"/>
-                    <xs:element type="xs:string" name="lastname"/>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
+              <xs:element type="xs:string" name="name"/>
               <xs:element name="contact">
                 <xs:complexType>
                   <xs:sequence>
@@ -38,20 +31,15 @@
         <xs:element name="education">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="degrees">
+              <xs:element name="degree">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="degree">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element type="xs:string" name="university"/>
-                          <xs:element type="xs:string" name="major"/>
-                          <xs:element type="xs:string" name="GPA"/>
-                          <xs:element type="xs:string" name="startdate"/>
-                          <xs:element type="xs:string" name="enddate"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
+                    <xs:element type="xs:string" name="university"/>
+                    <xs:element type="xs:string" name="major"/>
+                    <xs:element type="xs:string" name="year"/>
+                    <xs:element type="xs:string" name="GPA"/>
+                    <xs:element type="xs:string" name="startdate"/>
+                    <xs:element type="xs:string" name="enddate"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>

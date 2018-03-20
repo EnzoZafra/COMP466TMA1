@@ -1,13 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="resume.xsl"?>
 <resume>
 
   <information>
 
-    <name>
-      <firstname>Lorenzo</firstname>
-      <lastname>Zafra></lastname>
-    </name>
+    <name>Lorenzo Zafra</name>
 
     <contact>
       <email>zafra@ualberta.ca</email>
@@ -25,16 +22,14 @@
   </information>
 
   <education>
-    <degrees>
-      <degree>
-        <university>University of Alberta</university>
-        <major>Computer Engineering</major>
-        <year>4th Year</year>
-        <GPA>3.6 / 4</GPA>
-        <startdate>September 2014</startdate>
-        <enddate>June 2019</enddate>
-      </degree>
-    </degrees>
+    <degree>
+      <university>University of Alberta</university>
+      <major>Computer Engineering</major>
+      <year>4th Year</year>
+      <GPA>3.6 / 4</GPA>
+      <startdate>September 2014</startdate>
+      <enddate>June 2019</enddate>
+    </degree>
   </education>
 
   <workexperience>
