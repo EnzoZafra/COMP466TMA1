@@ -1,15 +1,67 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="notes.xsl"?>
 <notes>
-
   <note>
     <topic>XML</topic>
-    <data></data>
+    <subtopic>
+      <header>3.0.0 General Information</header>
+      <data>XML is a portable open technology for data storage and exchange</data>
+      <data>XML allows authors to create markup for any time of information</data>
+      <data>An XML parser is responsible for identifying components of XML documents and storing it inside a data structure</data>
+    </subtopic>
+    <subtopic>
+      <header>3.0.1 Structuring Data</header>
+      <data>XML documents contain elements like html elements</data>
+      <data>XML is a tree like structure, where a parent can have multiple child elements</data>
+      <data>The root element of an XML document encompasses all its other elements</data>
+    </subtopic>
+    <subtopic>
+      <header>3.0.2 XML Schema Documents</header>
+      <data>XML schemas specifies what type of data an element can contain</data>
+      <data>XML schemas are used to verify the XML document</data>
+      <data>Two categories of types exist in XML schema: simple types and complex types</data>
+    </subtopic>
+    <subtopic>
+      <header>3.0.3 Extensible Stylesheet Language (XSL)</header>
+      <data>XSL sheets converts XML into a text-based document</data>
+      <data>XSL selectively navigates the source tree using XPath's select and match attributes</data>
+      <data>XSL sheets are connected directly to an XML document by adding an instruction to the XML document</data>
+      <data>Functions are given such as value-of and for-each to transform the XML element to a readable object</data>
+    </subtopic>
+    <subtopic>
+      <header>3.0.4 Document Object Model</header>
+      <data>Some XML parsers store document data as tree structures in memory</data>
+      <data>This heirarchical structure is called a Document Object Model (DOM) tree</data>
+      <data>Each element name is represented by a node</data>
+      <data>A parent node can have many children but a child can only have one parent node</data>
+      <data>A node has properties that allows the developer to grab information about the node such as : nodeName, childNodes, nodeValue and so on..</data>
+      <data>The tree helps the developers traverse the XML document easily while obtaining properties of each node</data>
+    </subtopic>
   </note>
 
   <note>
     <topic>Ajax</topic>
-    <data></data>
+    <subtopic>
+      <header>3.1.0 General Information</header>
+      <data>Ajax applications separate client-side user interaction and server communication so that it can run them in parallel</data>
+      <data>Raw Ajax uses JavaScript to send asynchronous requests to the server, then update the page using DOM</data>
+      <data>The client creates an XMLHttpRequest object to manage a request and then sends it to the server</data>
+      <data>The request object invokes a callback function that typically updates to display the returned data without reloading the entire page</data>
+    </subtopic>
+    <subtopic>
+      <header>3.1.1 Exception Handling</header>
+      <data>An exception is an indication that a problem has occured during program execution</data>
+      <data>Exception handling enables you to create applications that can resolve the exceptions</data>
+      <data>the try{} block encloses code that might cause an eception</data>
+      <data>A catch{} block followed by an exception parameter handles an exception</data>
+    </subtopic>
+    <subtopic>
+      <header>3.1.2 JSON</header>
+      <data>JavaScript Object Notation is a way to represent objects as strings</data>
+      <data>In a JSON file, objects are represented as a list of property names and their values</data>
+      <data>JSONs contains arrays and strings</data>
+      <data>Typically, Web Services respond to requests by sending JSON data to the requester</data>
+    </subtopic>
   </note>
 
 </notes>
