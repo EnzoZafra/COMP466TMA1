@@ -5,7 +5,7 @@
   <note>
     <topic>Web</topic>
     <subtopic>
-      <header>1.1 Web History</header>
+      <header>1.1.0 Web History</header>
       <data>Moore's Law is a trend that states: Every year or two, the capacities of computers have doubled inexpensively</data>
       <data>Computers and the Internet are being used in industry, research, health care, social good, communication, entertainment and more...</data>
       <data>A bit is the smallest data item in a computer; it can have the value of 0 or 1</data>
@@ -19,7 +19,7 @@
     </subtopic>
 
     <subtopic>
-      <header>1.2 Web Servers</header>
+      <header>1.1.1 Web Servers</header>
       <data>A web page is nothing more than an HTML document. When the user tries to access a website, a web server locates the requested html file and sends it to the user's browser</data>
       <data>HTML documents contain hyperlinks, which when clicked, loads a specified web document</data>
       <data>Hyperlinks can also reference e-mail addresses by addressing mailto:emailAddress instead of a webpage URL</data>
@@ -43,7 +43,7 @@
   <note>
     <topic>HTML5</topic>
     <subtopic>
-      <header>1.1 General Information</header>
+      <header>1.2.0 General Information</header>
       <data>HTML5 is a special type of computer language called a markup language</data>
       <data>It's designed to specify the content and structure of web pages in a portable manner</data>
       <data>HTML enables developers to create content that will render across a range of devices such as phones, computers, and tablets</data>
@@ -56,7 +56,7 @@
       <data>Start tags may have attributes that provide additional information about the element. Each attribute has a name and value seperated by an equals sign (=)</data>
     </subtopic>
     <subtopic>
-      <header>1.2 Elements</header>
+      <header>1.2.1 Elements</header>
       <data>Paragraph elements begin with &lt;p&gt; and end with &lt;/p&gt;</data>
       <data>HTML5 provides six heading elements (h1 through h6) for specifiying relative importance of information. h1 is most significant while h6 is the least</data>
       <data>The img element's src attribute specifies an image's location. Every image must have an alt attribute which contains text that is displayed if the client cannot render the image</data>
@@ -67,7 +67,7 @@
       <data>HTML5 provides forms for collecting information from users</data>
     </subtopic>
     <subtopic>
-      <header>1.3 Forms</header>
+      <header>1.2.2 Forms</header>
       <data>Form elements have a method attribute which specifies how the form's data is sent to the web server</data>
       <data>The action attribute of the form specifies the script to which the form data will be sent</data>
       <data>HTML allows linking to another section of the same document by specifiying the element's id as the link's href</data>
@@ -78,7 +78,7 @@
   <note>
     <topic>CSS</topic>
     <subtopic>
-      <header>1.1 General Information</header>
+      <header>1.3.0 General Information</header>
       <data>Cascading Style Sheets (CSS) are used to specify the presentation or styling of elements on a web page</data>
       <data>CSS was designed to style portable web pages independently of their content and structure</data>
       <data>CSS allows the developer to easily change the look of the website by swapping out style sheets for another</data>
@@ -86,9 +86,31 @@
       <data>Styles that are placed in a style element use selectors to apply style elements throughout the entire document</data>
     </subtopic>
     <subtopic>
-      <header>1.2 Style Classes</header>
+      <header>1.3.1 Embedded Style Sheets</header>
+      <data>Embedded style sheets enable you to embed a CSS document in an HTML5 document's head section</data>
+      <data>Styles that are placed in a style element use selectors to apply style elements throughout the document</data>
+      <data>The style sheet's body declares the CSS rules for the style sheet</data>
       <data>Style-class declarations are preceded by a period (.)</data>
       <data>Style Classes define styles that can be applied to any element</data>
+      <data>Properties such as the font, font-weight and font-size can be applied through style sheets. </data>
+      <data>In many cases, styles applied to an elemnt also apply to the element's nested elements</data>
+    </subtopic>
+    <subtopic>
+      <header>1.3.2 External Style Sheets</header>
+      <data>External style sheets are seperate documents that contain only CSS rules</data>
+      <data>When changes to the styles are required, you need to modify only a single CSS file. This concept is known as skinning</data>
+      <data>The link html element is used to link external style sheets</data>
+      <data>For example, the following style sheet will set the font-size, color and background-color of all elements in the HTML file's body section.
+        body      { font-size : 20pt;
+                        color:  yellow;
+                        background-color: navy; }
+      </data>
+    </subtopic>
+    <subtopic>
+      <header>1.3.3 Backgrounds</header>
+      <data>CSS can control the backgrounds of block-level elements by adding Colors and Images</data>
+      <data>The background-image property specifies the URL of the image</data>
+      <data>The background-position property places the image on the page using values such as: top, bottom, center, left and right</data>
     </subtopic>
 
   </note>
