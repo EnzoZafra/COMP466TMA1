@@ -2,8 +2,8 @@
 
   <head>
     <title>Intro to HTML5, CSS3, Javascript, XML and Ajax </title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   </head>
 
   <nav class="grey darken-1" role="navigation">
@@ -18,15 +18,17 @@
   </nav>
 
   <body class="grey lighten-2">
+    <div id="notesection" class="container">
+      <h3 class="teal-text text-lighten-3">Unit 3 - XML and Ajax</h3>
+      <hr>
 
-    <h3 class="teal-text text-lighten-3">Unit 3 - XML and Ajax</h3>
-    <hr>
+      <script src="../js/loadnotes.js" file="../unit3/notes.xml"></script>
 
-    <script src="../js/loadnotes.js" file="../unit3/notes.xml"></script>
-
-    <div class="center">
-      <a class="waves-effect waves-light btn">Take the quiz</a>
+      <div class="center row">
+        <a class="waves-effect waves-light btn" href="quiz.html">Take the quiz</a>
+      </div>
     </div>
+
   </body>
 
 </html>

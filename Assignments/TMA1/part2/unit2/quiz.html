@@ -1,10 +1,12 @@
 <html>
 
   <head>
-    <title>Intro to HTML5, CSS3, Javascript, XML and Ajax </title>
+    <title>Unit 2 Quiz</title>
     <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   </head>
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
   <nav class="grey darken-1" role="navigation">
     <div class="nav-wrapper container">
@@ -18,16 +20,18 @@
   </nav>
 
   <body class="grey lighten-2">
-    <div id="notesection" class="container">
-      <h3 class="teal-text text-lighten-3">Unit 2 - Javascript</h3>
+    <div class="container">
+      <h3 class="teal-text text-lighten-3">Unit 2 Quiz - JavaScript</h3>
       <hr>
 
-      <script src="../js/loadnotes.js" file="../unit2/notes.xml"></script>
-
+      <div id="quiz row"></div>
       <div class="center row">
-        <a class="waves-effect waves-light btn" href="quiz.html">Take the quiz</a>
+        <a id="submit" class="waves-effect waves-light btn" href="#">Submit Quiz</a>
       </div>
+      <div id="results row"></div>
     </div>
+
+
   </body>
 
 </html>

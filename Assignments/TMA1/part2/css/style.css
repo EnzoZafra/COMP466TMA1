@@ -1,0 +1,25 @@
+/* body { */
+/*   margin-top: 100px; */
+/*   margin-bottom: 100px; */
+/*   margin-left: 100px; */
+/*   margin-right: 100px; */
+/* } */
+
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+  height: 700px;
+}
+
+.parallax-container .parallax img {
+  display: none;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}

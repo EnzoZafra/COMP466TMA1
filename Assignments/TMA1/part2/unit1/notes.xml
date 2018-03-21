@@ -71,7 +71,6 @@
       <data>Form elements have a method attribute which specifies how the form's data is sent to the web server</data>
       <data>The action attribute of the form specifies the script to which the form data will be sent</data>
       <data>HTML allows linking to another section of the same document by specifiying the element's id as the link's href</data>
-      <data>See the appendix below for examples of HTML elements and form elements</data>
     </subtopic>
   </note>
 
