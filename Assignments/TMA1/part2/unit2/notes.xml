@@ -3,9 +3,68 @@
 <notes>
   <note>
     <topic>Javascript</topic>
-    <data>JavaScript helps a developer build dynamic web pages that can be modified "on the fly"</data>
-    <data>It enables develoeprs to do the client-side programming of web applications</data>
-    <data>JavaScript is a portable scripting language. Programms written in JS can be ran in web browsers across devices</data>
+    <subtopic>
+      <header>2.0.0 General Information</header>
+      <data>The &lt;script&gt; tag indicates to the browser that the text which follows is part of a script</data>
+      <data>Javascript is case sensitive</data>
+      <data>Every statement should end with a semicolon, although none is required by JavaScript</data>
+      <data>JS code is typically placed in a separate file then included in the HTML5 document that uses the script</data>
+    </subtopic>
+    <subtopic>
+      <header>2.0.1 Language Specifics</header>
+      <data>The keyword 'var' is used to declare the names of variables</data>
+      <data>A variable name can be any valid identifier consisting of alphanumeric characters, underscores and dollar signs</data>
+      <data>The null keyword signifies that a variable has no value</data>
+    </subtopic>
+    <subtopic>
+      <header>2.0.2 Control Statements</header>
+      <data>A procedure for solving a problem in terms of actions and order of actions is called an algorithm</data>
+      <data>A pseudo code is an informal language that helps you develop algorithms</data>
+      <data>JavaScript provides three selection structures: if statement, if..else statement and switch statement</data>
+      <data>JavaScript provides four repetition statements, while, do...while, for and for...in</data>
+      <data>The conditional operator (?:) takes 3 operands.
+        The first operand is the boolean expression,
+        second is the value if the expression evaluates to true.
+        The third is the value if the operation evaluates to false
+      </data>
+      <data>The for statement takes the initial value of the control variable, a loop-continuation variable, and an increment/decrement of control variable</data>
+      <data>When working with for or while loops, be careful about non-terminating loops. Make sure that the loop-continuation variable is going to terminate at some point</data>
+      <data>Break and continue statements are used to immediately exit or continue with the next statement in the sequence respectively</data>
+    </subtopic>
+    <subtopic>
+      <header>2.0.3 Functions</header>
+      <data>Javascript provides several objects that have a rich collection of methods for performing calculatons, string manipulations, date and time, and manipulations of collections of data called arrays</data>
+      <data>The return statement passes information from a function back to the point in the program where it was called</data>
+      <data>Three ways to return conrol: reaching function-ending right brace, executing the statement return;, executing the statement return expression;</data>
+      <data>Each identifier in a program has a scope</data>
+      <data>The scope for a variable or function is the portion of the program in which the identifier can be referenced</data>
+      <data>Global variables or script-level variables are accessible in any part of a script</data>
+      <data>Identifiers declared inside a function have a local scope and can be used only in that function</data>
+      <data>If a local variable has the same name as a global variable, the global variable is "hidden" from the function since the local variable is referenced</data>
+      <data>JavaScript provides nine global functions as part of a Global object. This object contains global variables, user-defined functions and built-in global functions</data>
+      <data>A recursive function is a function that calls itself. It only knows how to solve a base case which then it returns a result</data>
+      <data>For a recursive function to eventually terminate, each call must be a simpler version of the original problem and converge to the base case</data>
+    </subtopic>
+    <subtopic>
+      <header>2.0.4 Arrays</header>
+      <data>Arrays are created using a comma-separated initializer list enclosed in square brackets([])</data>
+      <data>Initial values of an array can be specified as arguments in the parentheses following new Array</data>
+      <data>There are two pays to pass arguments to functions: pass-by-value and pass-by-reference</data>
+      <data>Pass-by-value takes a copy of the value and then passed to the function</data>
+      <data>Pass-by-reference gives the called function access to the data and allows the function to modify the data</data>
+      <data>Objects and arrays are passed by reference</data>
+      <data>JavaScript offers methods for joining, sorting and searching Arrays</data>
+    </subtopic>
+    <subtopic>
+      <header>2.0.5 Events</header>
+      <data>Events allow scripts to respond to user interactions and modify the page accordingly</data>
+      <data>An event handler is a function that responds to an event</data>
+      <data>Method addEventListener can be called on a DOM node to register event-handling method for an event. This can be done multiple times</data>
+      <data>It's also possible to remove an event listener by calling removeEventListener</data>
+      <data>Typical events that are used are start, mouseMove, mouseover, mouseout, focus and blur</data>
+      <data>Event bubbling is the process whereby events fired on child elements "bubble" up to their parent elements</data>
+      <data>Both the child and then parents event handlers are called when the event is fired on a child element</data>
+    </subtopic>
   </note>
 
 </notes>
