@@ -42,33 +42,47 @@ function buildQuiz() {
 
       var form = document.createElement("form");
       // form.onSubmit = checkAnswer();
+      row2.appendChild(form);
 
       var qtype = children[i].getElementsByTagName("type")[0].innerHTML;
-      var choices = children[i].getElementsByTagName("choice");
-      if (qtype == "mc") {
+
+      // Short answer
+      if (qtype == "fill") {
+        var div = document.createElement("div");
+
+        var input = document.createElement("input");
+        input.id = "answer-question" + i;
+        input.type = "text";
+
+        var label = document.createElement("label");
+        label.htmlFor = input.id;
+
+        form.appendChild(input);
+        form.appendChild(label);
+      } else {
+        var choices = children[i].getElementsByTagName("choice");
         for (k = 0; k < choices.length; k++) {
-          var p = document.createElement("p");
+          // Multiple choice questions
+          console.log(qtype)
+          if (qtype == "mc" || qtype == "tf") {
+            var p = document.createElement("p");
 
-          var input = document.createElement("input");
-          input.name = "question" + i;
-          input.type = "radio";
-          input.id = input.name + "answer" + k;
+            var input = document.createElement("input");
+            input.name = "question" + i;
+            input.type = "radio";
+            input.id = input.name + "answer" + k;
 
-          var label = document.createElement("label");
-          console.log(choices[k])
-          label.innerHTML = choices[k].textContent;
-          label.htmlFor = input.name + "answer" + k;
-          console.log(label.for)
+            var label = document.createElement("label");
+            label.innerHTML = choices[k].textContent;
+            label.htmlFor = input.name + "answer" + k;
 
-          form.appendChild(p);
-          p.appendChild(input);
-          p.appendChild(label);
-
+            form.appendChild(p);
+            p.appendChild(input);
+            p.appendChild(label);
+          }
         }
-        row2.appendChild(form);
       }
 
-      document.write("<hr>");
     }
   }
 
