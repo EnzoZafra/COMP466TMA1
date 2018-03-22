@@ -1,3 +1,7 @@
+$(document).ready(function() {
+  $('select').material_select();
+});
+
 function buildQuiz() {
   if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -48,7 +52,6 @@ function buildQuiz() {
 
       // Short answer
       if (qtype == "fill") {
-        var div = document.createElement("div");
 
         var input = document.createElement("input");
         input.id = "answer-question" + i;
@@ -59,28 +62,50 @@ function buildQuiz() {
 
         form.appendChild(input);
         form.appendChild(label);
-      } else {
+      }
+      else if (qtype == "mc" || qtype == "tf") {
+        // Multiple choice questions
         var choices = children[i].getElementsByTagName("choice");
         for (k = 0; k < choices.length; k++) {
-          // Multiple choice questions
-          console.log(qtype)
-          if (qtype == "mc" || qtype == "tf") {
-            var p = document.createElement("p");
+          var p = document.createElement("p");
 
-            var input = document.createElement("input");
-            input.name = "question" + i;
-            input.type = "radio";
-            input.id = input.name + "answer" + k;
+          var input = document.createElement("input");
+          input.name = "question" + i;
+          input.type = "radio";
+          input.id = input.name + "answer" + k;
 
-            var label = document.createElement("label");
-            label.innerHTML = choices[k].textContent;
-            label.htmlFor = input.name + "answer" + k;
+          var label = document.createElement("label");
+          label.innerHTML = choices[k].textContent;
+          label.htmlFor = input.name + "answer" + k;
 
-            form.appendChild(p);
-            p.appendChild(input);
-            p.appendChild(label);
-          }
+          form.appendChild(p);
+          p.appendChild(input);
+          p.appendChild(label);
         }
+      }
+      else if (qtype == "select") {
+        var div = document.createElement("div");
+        var select = document.createElement("select");
+        select.setAttribute("multiple", "");
+        div.appendChild(select);
+
+        var label = document.createElement("option");
+        label.value = "";
+        label.setAttribute("disabled", "");
+        label.setAttribute("selected", "");
+        label.innerHTML = "Select all that apply";
+        select.appendChild(label);
+
+
+        var choices = children[i].getElementsByTagName("choice");
+        for (k = 0; k < choices.length; k++) {
+          var choice = choices[k].textContent;
+          var option = document.createElement("option");
+          option.value = choice;
+          option.innerHTML = choice;
+          select.appendChild(option);
+        }
+        form.appendChild(div);
       }
 
     }
