@@ -16,20 +16,18 @@ function buildQuiz() {
 
     var notes = xmlDoc.getElementsByTagName("questions")[0];
     var children = notes.getElementsByTagName("question");
+    var form = document.getElementById("quizform")
     for (i=0; i < children.length; i++)
     {
-      var quiz = document.getElementById("quiz");
+      // var quiz = document.getElementById("quiz");
       var container = document.createElement("div");
       container.className = "container";
-      quiz.appendChild(container);
+      // quiz.appendChild(container);
+      form.appendChild(container);
 
       var row = document.createElement("div");
       row.className = "row"
       container.appendChild(row);
-
-      var ans = document.createElement("div");
-      ans.className = "col s1";
-      row.appendChild(ans);
 
       var prompt = document.createElement("div");
       prompt.className = "col s12";
@@ -44,9 +42,9 @@ function buildQuiz() {
       row2.className = "row"
       container.appendChild(row2);
 
-      var form = document.createElement("form");
-      // form.onSubmit = checkAnswer();
-      row2.appendChild(form);
+      // var form = document.createElement("form");
+      // var form = document.getElementById("quizform")
+      // row2.appendChild(form);
 
       var qtype = children[i].getElementsByTagName("type")[0].innerHTML;
 
@@ -60,8 +58,8 @@ function buildQuiz() {
         var label = document.createElement("label");
         label.htmlFor = input.id;
 
-        form.appendChild(input);
-        form.appendChild(label);
+        row2.appendChild(input);
+        row2.appendChild(label);
       }
       else if (qtype == "mc" || qtype == "tf") {
         // Multiple choice questions
@@ -78,7 +76,7 @@ function buildQuiz() {
           label.innerHTML = choices[k].textContent;
           label.htmlFor = input.name + "answer" + k;
 
-          form.appendChild(p);
+          row2.appendChild(p);
           p.appendChild(input);
           p.appendChild(label);
         }
@@ -105,12 +103,25 @@ function buildQuiz() {
           option.innerHTML = choice;
           select.appendChild(option);
         }
-        form.appendChild(div);
+        row2.appendChild(div);
       }
 
     }
+    var buttondiv = document.createElement("div");
+    buttondiv.className = "center row";
+    var submitbutton = document.createElement("button");
+    submitbutton.className = "waves-effect waves-light btn";
+    submitbutton.type = "submit";
+    submitbutton.innerHTML = "Submit Quiz";
+    buttondiv.appendChild(submitbutton);
+    form.appendChild(buttondiv);
   }
 
   xmlhttp.open("GET", "questions.xml", false);
   xmlhttp.send();
+}
+
+function checkAnswer() {
+  console.log("TEST");
+  // console.log($('input[name=question2]:checked').next().text());
 }
