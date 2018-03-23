@@ -1,72 +1,70 @@
 <?xml version="1.0"?>
 <questions>
   <question>
-    <type>fill</type>
-    <prompt>What law states that, for every year the capacities of computers have doubled efficiently</prompt>
-    <answer>Moores</answer>
-  </question>
-  <question>
     <type>mc</type>
-    <prompt>Which technologies are considered as Recommendations by W3C?</prompt>
-    <choice>A: HTML</choice>
-    <choice>B: CSS</choice>
-    <choice>C: XML</choice>
-    <choice>D: All of the above</choice>
-    <answer>D</answer>
+    <prompt>Which of the following statements is false?</prompt>
+    <choice>A: Like humans, XML elements can have two parents</choice>
+    <choice>B: XML's root element encompasses all of its other elements</choice>
+    <choice>C: XSL sheets are connected to the XML documen by adding an instruction in the XML document</choice>
+    <choice>D: Functions are provided to transform an XML element to a readable data form</choice>
+    <answer>A</answer>
   </question>
   <question>
     <type>tf</type>
-    <prompt>Hyperlinks only work when linking web page URLs</prompt>
+    <prompt>An Ajax request invokes a callback that is used to display data and partially update the user interface</prompt>
     <choice>True</choice>
     <choice>False</choice>
-    <answer>False</answer>
-  </question>
-  <question>
-    <type>select</type>
-    <prompt>Select all HTTP request types that are available</prompt>
-    <choice>GET</choice>
-    <choice>REQUEST</choice>
-    <choice>POST</choice>
-    <choice>REMOVE</choice>
-    <choice>DELETE</choice>
-    <answer>GET,POST,DELETE</answer>
-  </question>
-  <question>
-    <type>tf</type>
-    <prompt>All HTML elements must begin with start tag and end with an end tag</prompt>
-    <choice>True</choice>
-    <choice>False</choice>
-    <answer>False</answer>
-  </question>
-  <question>
-    <type>select</type>
-    <prompt>Select all HTML elements that are available</prompt>
-    <choice>h7</choice>
-    <choice>b</choice>
-    <choice>p</choice>
-    <choice>ul</choice>
-    <choice>ef</choice>
-    <choice>h2</choice>
-    <choice>h3</choice>
-    <answer>b,p,ul,h2,h3</answer>
+    <answer>True</answer>
   </question>
   <question>
     <type>mc</type>
-    <prompt>What does the abbreviation CSS stand for?</prompt>
-    <choice>A: Controlling Style Selectors</choice>
-    <choice>B: Callibrated Style Sheets</choice>
-    <choice>C: Cascading Style Sheets</choice>
-    <choice>D: Cascading Style Selectors</choice>
+    <prompt>What is JSON short for?</prompt>
+    <choice>A: JavaScript Open Notation</choice>
+    <choice>B: JavaScript Object Notation</choice>
+    <choice>C: Josh Saget's Open Notation</choice>
+    <choice>D: Josh Saget's Object Notation</choice>
+    <answer>B</answer>
+  </question>
+  <question>
+    <type>select</type>
+    <prompt>Select all types that is supported by JSON</prompt>
+    <choice>Integers</choice>
+    <choice>Float</choice>
+    <choice>Objects</choice>
+    <choice>Strings</choice>
+    <choice>Date</choice>
+    <choice>Arrays</choice>
+    <answer>Objects,Strings,Arrays</answer>
+  </question>
+  <question>
+    <type>mc</type>
+    <prompt>What object does a client need to create to create and send a request to a server?</prompt>
+    <choice>A: XSLHttpRequest</choice>
+    <choice>B: XSLHttpResponse</choice>
+    <choice>C: XMLHttpRequest</choice>
+    <choice>D: XMLHttpResponse</choice>
     <answer>C</answer>
   </question>
   <question>
+    <type>tf</type>
+    <prompt>XSL sheets are used to convert XML into a text-based document</prompt>
+    <choice>True</choice>
+    <choice>False</choice>
+    <answer>True</answer>
+  </question>
+  <question>
     <type>mc</type>
-    <prompt>Which properties can be applied through style sheets?</prompt>
-    <choice>A: font</choice>
-    <choice>B: font-weight</choice>
-    <choice>C: font-size</choice>
+    <prompt>Which of the following statements is True?</prompt>
+    <choice>A: XML is a tree like structure. A parent can have multiple child elements</choice>
+    <choice>B: XML is portable used for data storage and exchange</choice>
+    <choice>C: XML parsers are used to identify components of XML documents</choice>
     <choice>D: All of the Above</choice>
     <answer>D</answer>
+  </question>
+  <question>
+    <type>fill</type>
+    <prompt>What is XML short for?</prompt>
+    <answer>Extensible Markup Language</answer>
   </question>
 
 </questions>
