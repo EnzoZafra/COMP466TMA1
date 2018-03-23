@@ -1,72 +1,69 @@
 <?xml version="1.0"?>
 <questions>
   <question>
+    <type>mc</type>
+    <prompt>Select the statement that is false</prompt>
+    <choice>A: Javascript is a case sensitive language</choice>
+    <choice>B: Every statement in javascript must end with a semicolon</choice>
+    <choice>C: A variable name can consist of understores</choice>
+    <choice>D: Javascript is typically placed in a separate file then included in the HTML document</choice>
+    <answer>B</answer>
+  </question>
+  <question>
+    <type>tf</type>
+    <prompt>Pseudocode can be compiled an ran as an algorithm</prompt>
+    <choice>True</choice>
+    <choice>False</choice>
+    <answer>False</answer>
+  </question>
+  <question>
     <type>fill</type>
-    <prompt>What law states that, for every year the capacities of computers have doubled efficiently</prompt>
-    <answer>Moores</answer>
-  </question>
-  <question>
-    <type>mc</type>
-    <prompt>Which technologies are considered as Recommendations by W3C?</prompt>
-    <choice>A: HTML</choice>
-    <choice>B: CSS</choice>
-    <choice>C: XML</choice>
-    <choice>D: All of the above</choice>
-    <answer>D</answer>
+    <prompt>What data structure is created by using a comma-separated initializer list?</prompt>
+    <answer>Array</answer>
   </question>
   <question>
     <type>tf</type>
-    <prompt>Hyperlinks only work when linking web page URLs</prompt>
+    <prompt>break statements are typically used to immediately exit out of a loop </prompt>
     <choice>True</choice>
     <choice>False</choice>
-    <answer>False</answer>
+    <answer>True</answer>
   </question>
   <question>
     <type>select</type>
-    <prompt>Select all HTTP request types that are available</prompt>
-    <choice>GET</choice>
-    <choice>REQUEST</choice>
-    <choice>POST</choice>
-    <choice>REMOVE</choice>
-    <choice>DELETE</choice>
-    <answer>GET,POST,DELETE</answer>
-  </question>
-  <question>
-    <type>tf</type>
-    <prompt>All HTML elements must begin with start tag and end with an end tag</prompt>
-    <choice>True</choice>
-    <choice>False</choice>
-    <answer>False</answer>
-  </question>
-  <question>
-    <type>select</type>
-    <prompt>Select all HTML elements that are available</prompt>
-    <choice>h7</choice>
-    <choice>b</choice>
-    <choice>p</choice>
-    <choice>ul</choice>
-    <choice>ef</choice>
-    <choice>h2</choice>
-    <choice>h3</choice>
-    <answer>b,p,ul,h2,h3</answer>
+    <prompt>Select all types of Control Statements from the list</prompt>
+    <choice>if</choice>
+    <choice>if...while</choice>
+    <choice>while</choice>
+    <choice>do...while</choice>
+    <choice>for</choice>
+    <choice>if...else</choice>
+    <choice>var</choice>
+    <choice>conditional</choice>
+    <answer>if,while,do...while,for,if...else,conditional</answer>
   </question>
   <question>
     <type>mc</type>
-    <prompt>What does the abbreviation CSS stand for?</prompt>
-    <choice>A: Controlling Style Selectors</choice>
-    <choice>B: Callibrated Style Sheets</choice>
-    <choice>C: Cascading Style Sheets</choice>
-    <choice>D: Cascading Style Selectors</choice>
-    <answer>C</answer>
+    <prompt>Which method can be called to register event-handling on a DOM node?</prompt>
+    <choice>A: addEventListener</choice>
+    <choice>B: addEventHandler</choice>
+    <choice>C: registerEventListener</choice>
+    <choice>D: registerEventHandler</choice>
+    <answer>A</answer>
   </question>
   <question>
     <type>mc</type>
-    <prompt>Which properties can be applied through style sheets?</prompt>
-    <choice>A: font</choice>
-    <choice>B: font-weight</choice>
-    <choice>C: font-size</choice>
+    <prompt>Select the statement that is true about JavaScript</prompt>
+    <choice>A: Global variables are accessible in any part of a script</choice>
+    <choice>B: A recursive function is a function that calls itself and eventually terminates by solving the base case</choice>
+    <choice>C: Each identifier in a program has a scope</choice>
     <choice>D: All of the Above</choice>
     <answer>D</answer>
   </question>
-
+  <question>
+    <type>tf</type>
+    <prompt>Javascript objects and arrays are passed by value</prompt>
+    <choice>True</choice>
+    <choice>False</choice>
+    <answer>True</answer>
+  </question>
 </questions>
