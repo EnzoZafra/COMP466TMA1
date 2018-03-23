@@ -3,7 +3,6 @@
   <question>
     <type>fill</type>
     <prompt>What law states that, for every year the capacities of computers have doubled efficiently</prompt>
-    <answer>Moores Law</answer>
     <answer>Moores</answer>
   </question>
   <question>
@@ -58,7 +57,7 @@
     <choice>B: Callibrated Style Sheets</choice>
     <choice>C: Cascading Style Sheets</choice>
     <choice>D: Cascading Style Selectors</choice>
-    <answer>D</answer>
+    <answer>C</answer>
   </question>
   <question>
     <type>mc</type>

@@ -1,4 +1,5 @@
-var answers ={};
+var inputmap = {};
+var validans = {};
 
 $(document).ready(function() {
   $('select').material_select();
@@ -26,10 +27,8 @@ function buildQuiz() {
     var form = document.getElementById("quizform")
     for (i=0; i < children.length; i++)
     {
-      // var quiz = document.getElementById("quiz");
       var container = document.createElement("div");
       container.className = "container";
-      // quiz.appendChild(container);
       form.appendChild(container);
 
       var row = document.createElement("div");
@@ -49,10 +48,6 @@ function buildQuiz() {
       row2.className = "row"
       container.appendChild(row2);
 
-      // var form = document.createElement("form");
-      // var form = document.getElementById("quizform")
-      // row2.appendChild(form);
-
       var qtype = children[i].getElementsByTagName("type")[0].innerHTML;
 
       // Short answer
@@ -60,7 +55,8 @@ function buildQuiz() {
 
         var input = document.createElement("input");
         input.id = "answer-question" + i;
-        answers[input.id] = qtype;
+        inputmap[input.id] = qtype;
+        validans[input.id] = children[i].getElementsByTagName("answer")[0].innerHTML;
         input.type = "text";
 
         var label = document.createElement("label");
@@ -77,7 +73,7 @@ function buildQuiz() {
 
           var input = document.createElement("input");
           input.name = "answer-question" + i;
-          answers[input.name] = qtype
+          inputmap[input.name] = qtype
           input.type = "radio";
           input.id = input.name + "answer" + k;
 
@@ -89,13 +85,14 @@ function buildQuiz() {
           p.appendChild(input);
           p.appendChild(label);
         }
+        validans[input.name] = children[i].getElementsByTagName("answer")[0].innerHTML;
       }
       else if (qtype == "select") {
         var div = document.createElement("div");
         var select = document.createElement("select");
         select.setAttribute("multiple", "");
         select.id = "answer-question" + i;
-        answers[select.id] = qtype;
+        inputmap[select.id] = qtype;
         div.appendChild(select);
 
         var label = document.createElement("option");
@@ -114,6 +111,7 @@ function buildQuiz() {
           option.innerHTML = choice;
           select.appendChild(option);
         }
+        validans[select.id] = children[i].getElementsByTagName("answer")[0].innerHTML;
         row2.appendChild(div);
       }
 
@@ -133,20 +131,56 @@ function buildQuiz() {
 }
 
 function checkAnswer() {
-  for(key in answers){
-    var value = answers[key];
+  var score = 0;
+  var ans = '';
+  for(key in inputmap){
+    var value = inputmap[key];
     if (value == "mc") {
-      console.log($("input[name=" + key + "]:checked").next().text().charAt(0));
+      ans = $("input[name=" + key + "]:checked").next().text().charAt(0);
     }
     else if (value == "tf") {
-      console.log($("input[name=" + key + "]:checked").next().text());
+      ans = $("input[name=" + key + "]:checked").next().text();
     }
     else if (value == "select") {
-      console.log($("#" + key).val().join(','));
+      ans = $("#" + key).val().join(',');
     }
     else if (value == "fill") {
-      console.log($("#" + key).val());
+      ans = $("#" + key).val();
+    }
+    console.log("answer: " + ans);
+    console.log("valid answer: " + validans[key]);
+    if (ans == validans[key]) {
+      score++;
     }
   }
-  debugger;
+  printResult(score);
+}
+
+function printResult(score) {
+  document.getElementById("results").outerHTML='';
+  var form = document.getElementById("quizform")
+  var numquestions = Object.keys(validans).length;
+
+  var container = document.createElement("div");
+  container.className = "container";
+  container.id = "results"
+  form.appendChild(container);
+
+  var result = document.createElement("h6");
+  result.innerHTML = "Your score is: " + score + " ( " + score/numquestions*100 + "% )";
+  container.appendChild(result);
+
+
+  var label = document.createElement("B");
+  var t = document.createTextNode("Solutions:");
+  label.appendChild(t);
+  container.appendChild(label);
+
+  var counter = 1;
+  for(key in validans) {
+    var ans = document.createElement("p");
+    ans.innerHTML = counter + ". " + validans[key];
+    container.appendChild(ans);
+    counter++;
+  }
 }
