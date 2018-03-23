@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<questions>
+  <question>
+    <type>fill</type>
+    <prompt>What law states that, for every year the capacities of computers have doubled efficiently</prompt>
+    <answer>Moores</answer>
+  </question>
+  <question>
+    <type>mc</type>
+    <prompt>Which technologies are considered as Recommendations by W3C?</prompt>
+    <choice>A: HTML</choice>
+    <choice>B: CSS</choice>
+    <choice>C: XML</choice>
+    <choice>D: All of the above</choice>
+    <answer>D</answer>
+  </question>
+  <question>
+    <type>tf</type>
+    <prompt>Hyperlinks only work when linking web page URLs</prompt>
+    <choice>True</choice>
+    <choice>False</choice>
+    <answer>False</answer>
+  </question>
+  <question>
+    <type>select</type>
+    <prompt>Select all HTTP request types that are available</prompt>
+    <choice>GET</choice>
+    <choice>REQUEST</choice>
+    <choice>POST</choice>
+    <choice>REMOVE</choice>
+    <choice>DELETE</choice>
+    <answer>GET,POST,DELETE</answer>
+  </question>
+  <question>
+    <type>tf</type>
+    <prompt>All HTML elements must begin with start tag and end with an end tag</prompt>
+    <choice>True</choice>
+    <choice>False</choice>
+    <answer>False</answer>
+  </question>
+  <question>
+    <type>select</type>
+    <prompt>Select all HTML elements that are available</prompt>
+    <choice>h7</choice>
+    <choice>b</choice>
+    <choice>p</choice>
+    <choice>ul</choice>
+    <choice>ef</choice>
+    <choice>h2</choice>
+    <choice>h3</choice>
+    <answer>b,p,ul,h2,h3</answer>
+  </question>
+  <question>
+    <type>mc</type>
+    <prompt>What does the abbreviation CSS stand for?</prompt>
+    <choice>A: Controlling Style Selectors</choice>
+    <choice>B: Callibrated Style Sheets</choice>
+    <choice>C: Cascading Style Sheets</choice>
+    <choice>D: Cascading Style Selectors</choice>
+    <answer>C</answer>
+  </question>
+  <question>
+    <type>mc</type>
+    <prompt>Which properties can be applied through style sheets?</prompt>
+    <choice>A: font</choice>
+    <choice>B: font-weight</choice>
+    <choice>C: font-size</choice>
+    <choice>D: All of the Above</choice>
+    <answer>D</answer>
+  </question>
+
+</questions>

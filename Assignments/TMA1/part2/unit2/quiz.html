@@ -2,8 +2,8 @@
 
   <head>
     <title>Unit 2 Quiz</title>
-    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="../../shared/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="../../shared/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   </head>
 
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -24,14 +24,18 @@
       <h3 class="teal-text text-lighten-3">Unit 2 Quiz - JavaScript</h3>
       <hr>
 
-      <div id="quiz row"></div>
-      <div class="center row">
-        <a id="submit" class="waves-effect waves-light btn" href="#">Submit Quiz</a>
+      <div id="quiz" class="row">
+        <form id="quizform">
+        </form>
       </div>
-      <div id="results row"></div>
+      <div id="results" class="row"></div>
     </div>
-
-
   </body>
+
+  <select multiple id="select-mult"></select>
+
+  <script src="../../shared/js/materialize.js"></script>
+  <script src="../js/quiz.js"></script>
+  <script>buildQuiz();</script>
 
 </html>
