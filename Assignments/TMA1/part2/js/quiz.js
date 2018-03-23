@@ -1,5 +1,12 @@
+var answers ={};
+
 $(document).ready(function() {
   $('select').material_select();
+});
+
+$('#quizform').submit(function () {
+  checkAnswer();
+  return false;
 });
 
 function buildQuiz() {
@@ -53,6 +60,7 @@ function buildQuiz() {
 
         var input = document.createElement("input");
         input.id = "answer-question" + i;
+        answers[input.id] = qtype;
         input.type = "text";
 
         var label = document.createElement("label");
@@ -68,7 +76,8 @@ function buildQuiz() {
           var p = document.createElement("p");
 
           var input = document.createElement("input");
-          input.name = "question" + i;
+          input.name = "answer-question" + i;
+          answers[input.name] = qtype
           input.type = "radio";
           input.id = input.name + "answer" + k;
 
@@ -85,6 +94,8 @@ function buildQuiz() {
         var div = document.createElement("div");
         var select = document.createElement("select");
         select.setAttribute("multiple", "");
+        select.id = "answer-question" + i;
+        answers[select.id] = qtype;
         div.appendChild(select);
 
         var label = document.createElement("option");
@@ -122,6 +133,20 @@ function buildQuiz() {
 }
 
 function checkAnswer() {
-  console.log("TEST");
-  // console.log($('input[name=question2]:checked').next().text());
+  for(key in answers){
+    var value = answers[key];
+    if (value == "mc") {
+      console.log($("input[name=" + key + "]:checked").next().text().charAt(0));
+    }
+    else if (value == "tf") {
+      console.log($("input[name=" + key + "]:checked").next().text());
+    }
+    else if (value == "select") {
+      console.log($("#" + key).val().join(','));
+    }
+    else if (value == "fill") {
+      console.log($("#" + key).val());
+    }
+  }
+  debugger;
 }
