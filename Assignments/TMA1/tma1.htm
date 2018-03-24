@@ -1,0 +1,90 @@
+<html>
+
+  <head>
+    <title>Assignment 1</title>
+    <link href="shared/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="shared/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  </head>
+
+  <body class="grey lighten-2">
+
+    <div class="container center">
+      <h3>COMP 466 - Advanced Technologies for Web-Based Systems</h1>
+      <h4>Assignment 1</h2>
+      <h5>Lorenzo Zafra - 3356915</h3>
+      <h6><b>Date began:</b> March 10, 2018</h4>
+      <h6><b>Date completed:</b> March x, 2018</h4>
+      <h6>Estimated hours spent: x hours</h4>
+    </div>
+    <hr>
+    <div class="container">
+      <h4>Part 1 - Resume Documentation</h4>
+      <a href="part1/resume.xml"><b>Click here to access part 1</b></a><br>
+      <b>Description</b>
+      <p>
+        Create an XML version of your resume containing at least three sections:
+        general information about you; your educational background,
+        and your work experience. Create a schema for the XML document,
+        and then create an XSLT for the XML document so that it can be rendered
+        in a browser.
+      </p>
+
+      <b>My interpretation</b>
+      <p>
+        Using XML documents, create a resume that can be viewed on a browser.
+        The browser elements should be rendered by using XSLT sheets and applying
+        them to the XML document. Also, the XML document should be verified using
+        an XSD file to make sure that the XML document is syntatically correct.
+      </p>
+
+      <b>Analysis and Design of the Web Application</b>
+      <p>
+        When designing the XML file, it should be structured like a tree structure
+         where elements have parents and parents have childs. It's also important to
+        separate data into subsections like a regular text file resume. In this way, the
+         style sheet is able to pin-point which values to get easily and also in a more
+         organized fashion. When adding data such as work experience or educational experience,
+         we can structure it in a way such that the XSL sheet iterates through the nodes
+        and sees that there is more than one and display the information accordingly.
+      </p>
+
+      <b>Documentation</b>
+      <p>
+        All of the data for the resume information resides in resume.xml. The whole document is
+        within the &lt;resume&gt; tag. Contact information resides in a &lt;information&gt; tag
+        such as my name, email, phone number, website and also address. The education tag and
+        workexperience tag may contain multiple subsections of &lt;degree&gt; and &lt;workterm&gt;
+        respectively. In this way, we can simply add more degrees or workterm if need be and the XSL
+        sheet can loop through the sections and display the information.
+        The XSD file makes sure that this structure is kept in the resume.xml file. The xsd verifies
+        that it is following the given structure and throws an error if not.
+
+        Finally, the XSL file is used to render the XML file in a browser. The XSL works by matching
+        the given section(s) in the XML and then display the information using html elements. In my sheet,
+        I first display my contact information in an unordered list by going through the "/resume/information"
+        subsection and then accessing the specific data. Then, I used a for-each directive to loop through
+        the education section to display all of the degree information. In my case, I am only working on one degree
+        but in the future, having this for loop makes it easier to add more information. Similarly,
+        the workexperience section is for-looped so that I can display my workterm data easily.
+      </p>
+
+      <b>Set up and running</b>
+      <p>
+        The only setup required is to make sure that each of the files: resume.xml, resume.xsd, resume.xsl
+        are in the same folder. To verify the XML file using the XSD file, uncomment the line
+        &lt;resume:resume xmlns:resume=&quot;http://www.resume.com&quot;&gt; at the top of the resume.xml file.
+        To be able to render the XML file in a browser, uncomment the
+        &lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;resume.xsl&quot;?&gt; statement at the top of the
+        resume.xml file. Only one of these lines should be uncommented at one point. That is, we can only
+        verify OR render but not both at the same time. To open the resume.xml file, it can be accessed by clicking
+        <a href="part1/resume.xml">here</a> or the link above.
+      </p>
+
+    </div>
+
+
+    <script src="shared/js/materialize.js"></script>
+    <script src="shared/js/init.js"></script>
+  </body>
+
+</html>
