@@ -1,2 +1,2 @@
 part1 = 5 hrs
-part2 = 9 hr;
+part2 = 10 hrs

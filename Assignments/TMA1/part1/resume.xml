@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<resume:resume xmlns:resume="http://www.resume.com">
+<!-- <resume:resume xmlns:resume="http://www.resume.com"> -->
 <?xml-stylesheet type="text/xsl" href="resume.xsl"?>
 <resume>
 
-  <!-- <information> -->
+  <information>
 
     <name>Lorenzo Zafra</name>
 
@@ -20,7 +20,7 @@
       <country>Canada</country>
     </address>
 
-  <!-- </information> -->
+  </information>
 
   <education>
     <degree>
@@ -74,5 +74,4 @@
     </workterm>
 
   </workexperience>
-
 </resume>

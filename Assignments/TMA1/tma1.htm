@@ -12,10 +12,11 @@
       <h3>COMP 466 - Advanced Technologies for Web-Based Systems</h1>
       <h4>Assignment 1</h2>
       <h5>Lorenzo Zafra - 3356915</h3>
-      <h6><b>Date began:</b> March 10, 2018</h4>
+      <h6><b>Date began:</b> January 10, 2018</h4>
       <h6><b>Date completed:</b> March x, 2018</h4>
       <h6>Estimated hours spent: x hours</h4>
     </div>
+
     <hr>
     <div class="container">
       <h4>Part 1 - Resume Documentation</h4>
@@ -79,9 +80,131 @@
         verify OR render but not both at the same time. To open the resume.xml file, it can be accessed by clicking
         <a href="part1/resume.xml">here</a> or the link above.
       </p>
-
     </div>
 
+    <hr>
+    <div class="container">
+      <h4>Part 2 - Lecture & Quiz Documentation</h4>
+      <a href="part2/index.html"><b>Click here to access part 2</b></a><br>
+      <b>Description</b>
+      <p>
+        Using the web technologies you have learned so far, including
+        HTML5, CSS3, JavaScript, XML and Ajax, write a web application,
+        that can help people to learn the technologies covered in
+        Unit 1, Unit 2, or Unit 3 of the course.
+
+        The requirements are detailed as follows:
+        <ol>
+          <li>It must be a web-based system with a name you choose, a banner to show off your work, navigation menus and buttons. It should begin with a welcome page to greet the users, to explain what the application does, and what they get from it, and how they should proceed.</li>
+          <li>The application must have three pages of tutorials, accessible through navigation menus or buttons, to teach the technologies covered in Unit 1, Unit 2 and Unit 3 respectively. You don't need to teach everything, but there should be enough content to make each of the tutorials useful.</li>
+          <li>There should be a quiz for each tutorial, which can be accessed right after the tutorial page, as well as through the navigation menus and buttons of the system.</li>
+          <li>After the submission button is hit, the quiz system should be able to grade the answers the learner has provided, show the correct answers as well as the score in percentage.</li>
+          <li>The quiz system should be designed so that questions can be easily edited, added, or deleted, and new quiz can be easily created.</li>
+          <li>You should do your best to use the web technologies covered in Unit 1, unit 2 and Unit 3, including HTML5, CSS3, JavaScript, XML and Ajax.</li>
+          <li>Your web application should use or teach at least five page-structure elements and six new input types</li>
+          <li>You should use an external style sheet for all pages of the system, to retain a consistent and user-friendly interface for your system.</li>
+          <li>When using HTML5 table, be sure that you only use it to display tabular information, not to lay out the elements on your page.</li>
+        </ol>
+
+      </p>
+
+      <b>My interpretation</b>
+      <p>
+        This part of the assignment requires us to create a tutorial on the basics of web development topics such as CSS, HTML, JavaScript, Ajax and XML.
+        In order to learn HTML elements, we should use different kinds of elements such as headers and also form elements like text fields, radio buttons and checkboxes.
+        The description also requires us to create a quiz at the end of each tutorial. The quiz should show the user's mark and the correct answers.
+        Also, the quiz should be designed so that questions can be easily added. Therefore, the assignment's UI should not be static but rather dynamically created.
+        By using the technologies learned in Units 1, 2 and 3 (JavaScript, XML and Ajax to be exact) we can create the UI dynamically.
+      </p>
+
+      <b>Analysis and Design of the Web Application</b>
+      <p>
+        First, the main page or index.html contains a welcome page that tells the user what the application does.
+        In the middle, the user is able to select which Unit they want to learn from the dropdown box. They can also select
+        which unit using the navigation menu which is available in every page of this assignment. When the user clicks a unit,
+        They are brought to another .html file which contains the lecture for the unit.
+        <br><br>
+
+        Information about the topics in each unit are stored in an XML file. Each topic belongs in the notes section of the XML file
+        and each topic has subtopics. For example, the HTML5 topic may have Elements and Forms as its subtopic. In this way, we can use JavaScript
+        and Ajax (XMLHttpRequest) to dynamically load the XML file and create the notes section in HTML.
+        The information is loaded into the .html file when the .html file calls a JavaScript file called loadnotes.js.
+        <br><br>
+
+        In loadnotes.js, we create an XMLHttpRequest object to do a GET request obtaining the XML file where the information
+        about the unit resides. We then use a DOMParser to parse through the XML file and dynamically create a list of notes for the user to read in HTML.
+        By following the XML structure, we are able to separate which information are subtopic and should be displayed as headers and which are notes.
+        <br><br>
+
+        At the end of the lecture, a button is created which leads the user to a quiz page. In a similar fashion, the quiz questions and answers are stored in an XML file.
+        To build the quiz, we call a JavaScript function called buildQuiz(). The function creates an XMLHttpRequest and a GET call for the quiz information.
+        By checking the type of question it is which is stored in the XML file, the js file knows whether to create a multiple choice type question, fill in the blanks question,
+        a true or false question, or a select all question. (Only these 4 types of questions are supported.). When the user clicks 'Submit', the form calls a callback function called
+        checkAnswer() which checks the answer of the user and compares it with the answers that are stored for each question in the XML file. The id's for each form which may contain the answer
+        are stored in a dictionary data structure while they are dynamically created. We use a dictionary so that we can use the id as a key, and the type of question as a value.
+        When checking the answer, we loop through the dictionaries keys (ids), check the value (type of question) and obtian the answer depending on the type.
+        When the answer is obtained, we simply check against the correct answers and increment a score variable accordingly.
+        <br><br>
+
+        To print the score, we first refresh the page to remove previous answers and score and then dynamically create elements to show the user their score and also the correct answers.
+      </p>
+
+      <b>Documentation</b>
+      <p>
+        Using Materialize CSS, we are able to create an aesthetically pleasing user interface. On the welcome page, I used a background image
+        which resides in shared/img. Also, every page has a navigation bar which links to the home page and the unit's html page.
+        <br><br>
+
+        <b>XML Files Format: </b>
+        <p>notes.xml</p>
+        <img src="shared/img/notesxml.png" alt="notes xml file structure" height=150 width=250>
+        <br>
+        <p>questions.xml</p>
+        <img src="shared/img/questionsxml.png" alt="questions xml file structure" height=300 width=500>
+        <br><br>
+
+        <b>JavaScript Functions: </b>
+        <p>loadnotes.js</p>
+        <ul>
+          <li>- Creates an XMLHttpRequest to do a GET call for the notes.xml file</li>
+          <li>- Uses DOMParser to parse the XML file and get elements by their tag name</li>
+          <li>- Dynamically create HTML elements such as divs, headers and paragraphs to display data from XML file</li>
+        </ul>
+        <p>buildQuiz()</p>
+        <ul>
+          <li>- Creates an XMLHttpRequest to do a GET call for the questions.xml file</li>
+          <li>- Uses DOMParser to parse the XML file and get elements by their tag name</li>
+          <li>- Check the type of question and then create HTML elements accordingly</li>
+          <li>- Stores the 'id' of every form element in a dictionary where key=id and value=question type for later use</li>
+          <li>- Store the correct answer in a list for later use</li>
+          <li>- Creates a button which calls back the checkAnswer() function on submit</li>
+        </ul>
+        <p>checkAnswer()</p>
+        <ul>
+          <li>- Iterates through the dictionary created in buildQuiz(). For each iteration, check the type of question (value)
+            and obtain the user's answer depending on the type. The for the form element is given as the key of the dictionary</li>
+          <li>- After obtaining the answer, compare with the valid answers from the list created in buildQuiz()</li>
+          <li>- Increments score whenever the user gets the correct answer</li>
+          <li>- call printResult(score)</li>
+        </ul>
+        <p>printResult()</p>
+        <ul>
+          <li>- Calculate the user's percentage by first getting the amount of questions and then dividing their score by the total amount</li>
+          <li>- Use a for loop to loop through the correct answers list to display the correct answers to the user</li>
+        </ul>
+      </p>
+
+      <b>Set up and running</b>
+      <p>
+        To access the welcome page, assuming you are already hosting a webserver, click <a href="part2/index.html">here</a> or the link above.
+        You can navigate to the lectures by selecting a unit from the navigation bar or by using the dropdrown
+        in the middle of the welcome page.
+        <br><br>
+
+        To access the quiz, scroll to the bottom at the end of every unit. To grade the quiz, answer each question
+        and hit the Submit button at the end of the quiz. Your score and result will be revealed after submission.
+      </p>
+    </div>
 
     <script src="shared/js/materialize.js"></script>
     <script src="shared/js/init.js"></script>
