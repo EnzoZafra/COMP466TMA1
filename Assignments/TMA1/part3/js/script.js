@@ -2,11 +2,13 @@ var imageObjects = {};
 var imgkeys = [];
 var currIndex = 0;
 var index;
+var timing = 0;
 var alpha = 0;
 var image;
 var paused = true;
-var transition = "none";
+var transition = "fadein";
 var photoInterval;
+var animation;
 
 function loadimgs() {
   $.ajax({
@@ -43,38 +45,39 @@ function displayImage(image, caption, transition) {
   // No transition
   var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
-  console.log(transition);
-  if (transition = "none") {
+  ctx.clearRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
+  if (transition == "none") {
     ctx.globalAlpha = 1;
-    ctx.clearRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
     drawImageScaled(image, ctx);
   }
-  else if (transition = "fadein") {
-    ctx.clearRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
+  // fadein
+  else if (transition == "fadein") {
     ctx.globalAlpha = alpha;
     drawImageScaled(image, ctx);
-    alpha += 0.01;
-    if (alpha < 1) {
-    }
-    else {
-      alpha = 0;
-    }
+    fadeIn(image, caption);
   }
+  // else if (transition == "rotate") {
+
+  // }
   document.getElementById("caption").innerHTML = caption;
 }
 
-function fadeInTransition() {
-  var canvas = document.getElementById("canvas");
-  var ctx = canvas.getContext("2d");
-  ctx.clearRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
-  ctx.globalAlpha = alpha;
-  drawImageScaled(image, ctx);
+function fadeIn(image, caption) {
   alpha += 0.01;
   if (alpha < 1) {
-    requestAnimationFrame(fadeInTransition);
+    window.clearInterval(displayInt);
+    animation = requestAnimationFrame(function() {
+      displayImage(image, caption, transition);
+    });
   }
   else {
     alpha = 0;
+    if (!paused) {
+      displayInt = window.setInterval(function() {
+        calculateIndex();
+        displayImage(imageObjects[index], imageObjects[index].caption, transition);
+      }, 1000);
+    }
   }
 }
 
@@ -110,6 +113,7 @@ function pausePlay() {
   var delayInMilliseconds = 1000;
   if (paused) {
     window.clearInterval(displayInt);
+    cancelAnimationFrame(animation);
   }
   else {
     displayInt = window.setInterval(function() {
