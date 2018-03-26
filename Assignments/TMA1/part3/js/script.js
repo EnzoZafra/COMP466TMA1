@@ -29,28 +29,16 @@ function initCanvas() {
   ctx.translate(canvas.width / 2, canvas.height / 2);
 }
 
-function scaleImage(image, canvas) {
-  var imgWidth = image.naturalWidth;
-  var screenWidth  = canvas.width;
-  var scaleX = 1;
-  if (imgWidth > screenWidth)
-    scaleX = screenWidth/imgWidth;
-  var imgHeight = image.naturalHeight;
-  var screenHeight = canvas.height;
-  var scaleY = 1;
-  if (imgHeight > screenHeight)
-    scaleY = screenHeight/imgHeight;
-  var scale = scaleY;
-  if(scaleX < scaleY)
-    scale = scaleX;
-  if(scale < 1){
-    imgHeight = imgHeight*scale;
-    imgWidth = imgWidth*scale;
-  }
-
-  canvas.height = imgHeight;
-  canvas.width = imgWidth;
-  return [imgWidth, imgHeight];
+function drawImageScaled(img, ctx) {
+  var canvas = ctx.canvas ;
+  var hRatio = canvas.width  / img.width    ;
+  var vRatio =  canvas.height / img.height  ;
+  var ratio  = Math.min ( hRatio, vRatio );
+  var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
+  var centerShift_y = ( canvas.height - img.height*ratio ) / 2;
+  ctx.clearRect(0,0,canvas.width, canvas.height);
+  ctx.drawImage(img, 0,0, img.width, img.height,
+    centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);
 }
 
 function displayImage(image, caption) {
@@ -59,10 +47,10 @@ function displayImage(image, caption) {
   var ctx = canvas.getContext("2d");
   ctx.globalAlpha = 1;
   ctx.clearRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
-  var dimensions = scaleImage(image, canvas);
-  ctx.drawImage(image, 0, 0, image.naturalWidth, image.naturalHeight, 0, 0, dimensions[0], dimensions[1]);
+  drawImageScaled(image, ctx);
   document.getElementById("caption").innerHTML = caption;
 }
+
 
 imageObjects = {};
 
@@ -71,7 +59,7 @@ $(window).load(function(){
   loadimgs();
   // initCanvas();
 
-  var firstkey = Object.keys(imageObjects)[6];
+  var firstkey = Object.keys(imageObjects)[7];
   displayImage(imageObjects[firstkey], imageObjects[firstkey].caption);
 
   //   var slides = $('#slideshow li'),
