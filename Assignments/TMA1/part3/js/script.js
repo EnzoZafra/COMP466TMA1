@@ -10,8 +10,8 @@ function loadimgs() {
         var src = images[i]['src'];
         img.src = src
         var caption = images[i]['caption'];
-        imageObjects[src] = img;
-        imageObjects[src].caption = images[i]['caption'];
+        imageObjects[i] = img;
+        imageObjects[i].caption = images[i]['caption'];
       }
     }
   });
@@ -81,8 +81,8 @@ function fadeInTransition() {
 }
 
 var imageObjects = {};
+var imgkeys = [];
 var currIndex = 0;
-var keys = [];
 var index;
 var alpha = 0;
 var image;
@@ -94,7 +94,7 @@ $(window).load(function(){
   var supportCanvas = 'getContext' in document.createElement('canvas');
   loadimgs();
   // initCanvas();
-  keys = Object.keys(imageObjects);
+  imgkeys = Object.keys(imageObjects);
 
   document.getElementById("start_btn").addEventListener("click", function(){
     paused = !paused;
@@ -103,10 +103,24 @@ $(window).load(function(){
 
 });
 
+function popRandom() {
+  indexholders.sort(function() { return 0.5 - Math.random();}).pop();
+}
+
+//TODO: listener for switch to disable the forward and backward btton
+
 function calculateIndex() {
+  var isRandom = document.getElementById('mySwitch').checked;
+  // Random images
+  if (isRandom) {
+    currIndex = Math.floor(Math.random() * imgkeys.length);
+  }
   // sequential
-  currIndex = (currIndex + 1) % keys.length;
-  index = keys[currIndex];
+  else {
+    currIndex = (currIndex + 1) % imgkeys.length;
+  }
+  index = imgkeys[currIndex];
+  console.log("index:" + index);
 }
 
 function pausePlay() {
