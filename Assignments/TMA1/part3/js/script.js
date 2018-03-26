@@ -126,7 +126,10 @@ function nextImage() {
 }
 
 function prevImage() {
-  currIndex = (currIndex - 1) % imgkeys.length;
+  currIndex--;
+  if (currIndex < 0) {
+    currIndex = imgkeys.length - 1;
+  }
   index = imgkeys[currIndex];
   displayImage(imageObjects[index], imageObjects[index].caption, transition);
 }
