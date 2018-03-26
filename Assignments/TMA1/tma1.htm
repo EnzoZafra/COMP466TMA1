@@ -204,6 +204,130 @@
         To access the quiz, scroll to the bottom at the end of every unit. To grade the quiz, answer each question
         and hit the Submit button at the end of the quiz. Your score and result will be revealed after submission.
       </p>
+
+      <b>Extra Information</b>
+      <p>
+        The notes for each unit were from the given presentations for each unit (written by Pearson).
+        Materialize CSS was used for this whole assignment as approved by Harris Wang.
+      </p>
+    </div>
+
+    <hr>
+    <div class="container">
+      <h4>Part 3 - Slideshow Documentation</h4>
+      <a href="part3/index.html"><b>Click here to access part 3</b></a><br>
+      <b>Description</b>
+        For this project, you are required to create a slideshow web application using HTML5 canvas
+        and other web technologies you have learned so far. The requirements are as follows:     <p>
+
+          <ol>
+            <li>The slideshow should be drawn on the canvas; </li>
+            <li>There should be a caption for each image in the show;</li>
+            <li>There should be a button to start/stop the show;</li>
+            <li>There should be a control to toggle the show between random and sequential;</li>
+            <li>There should be buttons to manually turn the show backward or forward, only if the show is in sequential mode;</li>
+            <li>There should be a dropdown list for users to select different transition/transformation effects for the show;</li>
+            <li>The data of the images should be in a JSON array so that images and their captions can be easily maintained;</li>
+            <li>To avoid copyright issues, you should use the images/photos you took. If you don’t have the images ready, please go around the place you live or work and take some good ones;</li>
+            <li> The show should have at least 20 nice pictures.</li>
+        </ol>
+
+      </p>
+
+      <b>My interpretation</b>
+      <p>
+        The goal for this part of the assignment is to design a slideshow application that uses HTML5's canvas element.
+        The images for the slideshow should be stored in a json file, so that we can easily add photos into the application when need be.
+        There should be a control panel for the slideshow which enables the user to: Pause/Play, Previous/Next image, change transition modes
+        and change between sequential or random order of images. The panel should only enable going forward and backward if the show is in sequential mode.
+      </p>
+
+      <b>Analysis and Design of the Web Application</b>
+      <p>
+        To store the images, I placed the image files in a folder called img/. Within the img/ directory also contains a json file, images.json, which stores an
+        array of the images path's and also captions for each picture. When the user loads the html file, the javascript loads this json file and stores the inforation
+        in a dictionary for later use. The loading and processing of the images are done using an Ajax call.
+        <br><br>
+
+        Each action or button in the control panel has an event listener that monitors whenever a user has interacted with the buttons. The specific details about
+        the event listener functions can be seen below in the 'Documentation' section. These event listeners are binded to the buttons and dropdowns when the window has
+        loaded and the images are finished being processed.
+        <br><br>
+
+        Drawing the image on the canvas requires the images to be scaled to the size of the canvas. We do the scaling by taking the ratio of the canvas' width/height and
+        dividing it by the images width/height. We then shift the position of the cursor to draw on the canvas so that the image is positioned in the middle of the canvas
+        when the image is drawn.
+        <br><br>
+
+        There are two choices for transition effects: Fade In and Normal Transition. The details for these are documented in the 'Documentation' section.
+      </p>
+
+      <b>Documentation</b>
+      <p>
+        <b>JavaScript Functions: </b>
+        <p>loadimgs</p>
+        <ul>
+          <li>- Uses an Ajax call to load 'images.json' and parse the json file</li>
+          <li>- Creates and stores an Image object using the given path in the json file</li>
+          <li>- Also stores the caption of each image for later use</li>
+        </ul>
+        <p>drawImageScaled(img, ctx)</p>
+        <ul>
+          <li>- Scales an image to the size of the canvas</li>
+          <li>- Scales by taking the size of the canvas and dividing by the size of the image</li>
+          <li>- This ratio is then used to draw the image onto the canvas while scaled</li>
+        </ul>
+        <p>displayImage(image, caption, transition)</p>
+        <ul>
+          <li>- First clears the canvas for any previous images</li>
+          <li>- Depending on the transition mode, the image is drawn</li>
+          <li>- If Normal transition, simply draw the image on the canvas</li>
+          <li>- If FadeIn transition, draw the image with an alpha value of 0 and repeat incrementing by 0.1 everytime until alpha is incremented to 1</li>
+        </ul>
+        <p>pauseplayListener()</p>
+        <ul>
+          <li>- An event listener callback for the 'Play' button</li>
+          <li>- Simply toggles the paused boolean and starts/stops the interval for displaying an image every 1s</li>
+        </ul>
+        <p>switchListener()</p>
+        <ul>
+          <li>- An event listener callback for the 'Random/Sequential' toggle switch</li>
+          <li>- If toggled, the 'Next' and 'Prev' are disabled</li>
+          <li>- If not, the 'Next' and 'Prev' are enabled</li>
+        </ul>
+        <p>changeTransition()</p>
+        <ul>
+          <li>- An event listener callback for the 'transition' dropdown</li>
+          <li>- Checks the index of the selected dropdown item then updates the 'transition' variable</li>
+        </ul>
+        <p>calculateIndex()</p>
+        <ul>
+          <li>- First checks if the 'Random/Sequential' switch is toggled</li>
+          <li>- If toggled, then we calculate a random index by using the Math.random() function and multiplied by the number of available images</li>
+          <li>- If not, we simply increment the current index by 1, then modulo with the amount of images to account for hitting the end of the array</li>
+        </ul>
+        <p>prevImage()</p>
+        <ul>
+          <li>- Decrement the currentIndex by one, if it becomes negative, wrap around to the end of the array</li>
+          <li>- Display the image at the currentIndex</li>
+        </ul>
+        <p>nextImage()</p>
+        <ul>
+          <li>- Increment the currentIndex by one. Modulo by the number of images to go back to the start if it has passed the limit</li>
+          <li>- Display the image at the currentIndex</li>
+        </ul>
+      </p>
+
+      <b>Set up and running</b>
+      <p>
+        To access the welcome page, assuming you are already hosting a webserver, click <a href="part3/index.html">here</a> or the link above.
+        <br><br>
+
+        To change between random or sequential pictures, toggle the switch. <br>
+        To change between transition modes, select a mode in the dropbox <br>
+        Pausing and Playing is done by clicking the 'Play' button. <br>
+        Moving to the next picture or previous picture are only enabled in sequential mode.
+      </p>
     </div>
 
     <script src="shared/js/materialize.js"></script>

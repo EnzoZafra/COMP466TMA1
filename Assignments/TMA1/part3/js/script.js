@@ -6,7 +6,7 @@ var timing = 0;
 var alpha = 0;
 var image;
 var paused = true;
-var transition = "none";
+var transition = "normal";
 var photoInterval;
 var animation;
 
@@ -50,7 +50,7 @@ function displayImage(image, caption, transition) {
   var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
   ctx.clearRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
-  if (transition == "none") {
+  if (transition == "normal") {
     cancelAnimationFrame(animation);
     ctx.globalAlpha = 1;
     drawImageScaled(image, ctx);
@@ -142,7 +142,7 @@ function prevImage() {
 
 function changeTransition(dropIndex) {
   if (dropIndex == '1') {
-    transition = "none";
+    transition = "normal";
   }
   else if (dropIndex == "2") {
     transition = "fadein";
