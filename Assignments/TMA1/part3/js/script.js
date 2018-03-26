@@ -1,3 +1,13 @@
+var imageObjects = {};
+var imgkeys = [];
+var currIndex = 0;
+var index;
+var alpha = 0;
+var image;
+var paused = true;
+var transition = "none";
+var photoInterval;
+
 function loadimgs() {
   $.ajax({
     url: "img/images.json",
@@ -15,18 +25,6 @@ function loadimgs() {
       }
     }
   });
-}
-
-function initCanvas() {
-  var canvas = document.getElementById("canvas");
-  canvas.style.width = "100%";
-  canvas.style.height = "80vh";
-  canvas.width = canvas.clientWidth;
-  canvas.height = canvas.clientHeight;
-  canvas.style.maxHeight = "80vh";
-  canvas.style.maxWidth = "100%";
-  var ctx = canvas.getContext('2d');
-  ctx.translate(canvas.width / 2, canvas.height / 2);
 }
 
 function drawImageScaled(img, ctx) {
@@ -80,34 +78,20 @@ function fadeInTransition() {
   }
 }
 
-var imageObjects = {};
-var imgkeys = [];
-var currIndex = 0;
-var index;
-var alpha = 0;
-var image;
-var paused = true;
-var transition = "none";
-var photoInterval;
-
-$(window).load(function(){
-  var supportCanvas = 'getContext' in document.createElement('canvas');
-  loadimgs();
-  // initCanvas();
-  imgkeys = Object.keys(imageObjects);
-
-  document.getElementById("start_btn").addEventListener("click", function(){
-    paused = !paused;
-    pausePlay();
-  });
-
-});
-
-function popRandom() {
-  indexholders.sort(function() { return 0.5 - Math.random();}).pop();
+function pauseplayListener() {
+  paused = !paused;
+  pausePlay();
 }
 
-//TODO: listener for switch to disable the forward and backward btton
+function switchListener(isChecked) {
+  if (isChecked) {
+    document.getElementById("prev_btn").setAttribute("disabled", "true");
+    document.getElementById("next_btn").setAttribute("disabled", "true");
+  } else {
+    document.getElementById("prev_btn").removeAttribute("disabled");
+    document.getElementById("next_btn").removeAttribute("disabled");
+  }
+}
 
 function calculateIndex() {
   var isRandom = document.getElementById('mySwitch').checked;
@@ -120,7 +104,6 @@ function calculateIndex() {
     currIndex = (currIndex + 1) % imgkeys.length;
   }
   index = imgkeys[currIndex];
-  console.log("index:" + index);
 }
 
 function pausePlay() {
@@ -135,3 +118,29 @@ function pausePlay() {
     }, delayInMilliseconds);
   }
 }
+
+function nextImage() {
+  currIndex = (currIndex + 1) % imgkeys.length;
+  index = imgkeys[currIndex];
+  displayImage(imageObjects[index], imageObjects[index].caption, transition);
+}
+
+function prevImage() {
+  currIndex = (currIndex - 1) % imgkeys.length;
+  index = imgkeys[currIndex];
+  displayImage(imageObjects[index], imageObjects[index].caption, transition);
+}
+
+$(window).load(function(){
+  var supportCanvas = 'getContext' in document.createElement('canvas');
+  loadimgs();
+  imgkeys = Object.keys(imageObjects);
+
+  document.getElementById("start_btn").addEventListener("click", pauseplayListener);
+  document.getElementById("next_btn").addEventListener("click", nextImage);
+  document.getElementById("prev_btn").addEventListener("click", prevImage);
+
+  document.getElementById("mySwitch").addEventListener('change', function() {
+    switchListener(this.checked);
+  });
+});
