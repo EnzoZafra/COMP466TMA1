@@ -1,120 +1,189 @@
+function loadimgs() {
+  $.ajax({
+    url: "img/images.json",
+    dataType: 'json',
+    async: false,
+    success: function(json) {
+      var images = json["images"];
+      for (var i = 0; i < images.length; i++) {
+        var img = new Image();
+        var src = images[i]['src'];
+        img.src = src
+        var caption = images[i]['caption'];
+        imageObjects[src] = img;
+        imageObjects[src].caption = images[i]['caption'];
+      }
+    }
+  });
+}
+
+function initCanvas() {
+  var canvas = document.getElementById("canvas");
+  canvas.style.width = "100%";
+  canvas.style.height = "80vh";
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+  canvas.style.maxHeight = "80vh";
+  canvas.style.maxWidth = "100%";
+  var ctx = canvas.getContext('2d');
+  ctx.translate(canvas.width / 2, canvas.height / 2);
+}
+
+function scaleImage(image, canvas) {
+  var imgWidth = image.naturalWidth;
+  var screenWidth  = canvas.width;
+  var scaleX = 1;
+  if (imgWidth > screenWidth)
+    scaleX = screenWidth/imgWidth;
+  var imgHeight = image.naturalHeight;
+  var screenHeight = canvas.height;
+  var scaleY = 1;
+  if (imgHeight > screenHeight)
+    scaleY = screenHeight/imgHeight;
+  var scale = scaleY;
+  if(scaleX < scaleY)
+    scale = scaleX;
+  if(scale < 1){
+    imgHeight = imgHeight*scale;
+    imgWidth = imgWidth*scale;
+  }
+
+  canvas.height = imgHeight;
+  canvas.width = imgWidth;
+  return [imgWidth, imgHeight];
+}
+
+function displayImage(image, caption) {
+  // No transition
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
+  ctx.globalAlpha = 1;
+  ctx.clearRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
+  var dimensions = scaleImage(image, canvas);
+  ctx.drawImage(image, 0, 0, image.naturalWidth, image.naturalHeight, 0, 0, dimensions[0], dimensions[1]);
+  document.getElementById("caption").innerHTML = caption;
+}
+
+imageObjects = {};
+
 $(window).load(function(){
   var supportCanvas = 'getContext' in document.createElement('canvas');
+  loadimgs();
+  // initCanvas();
 
-  // The canvas manipulations of the images are CPU intensive,
-  // this is why we are using setTimeout to make them asynchronous
-  // and improve the responsiveness of the page.
+  var firstkey = Object.keys(imageObjects)[6];
+  displayImage(imageObjects[firstkey], imageObjects[firstkey].caption);
 
-  var slides = $('#slideshow li'),
-    current = 0,
-    slideshow = {width:0,height:0};
+  //   var slides = $('#slideshow li'),
+  //     current = 0,
+  //     slideshow = {width:0,height:0};
 
-  setTimeout(function(){
-    if(supportCanvas){
-      $('#slideshow img').each(function(){
-        if(!slideshow.width){
-          // Saving the dimensions of the first image:
-          slideshow.width = this.width;
-          slideshow.height = this.height;
-        }
-        // Rendering the modified versions of the images:
-        createCanvasOverlay(this);
-      });
-    }
+  //   setTimeout(function(){
+  //     if(supportCanvas){
+  //       $('#slideshow img').each(function(){
+  //         if(!slideshow.width){
+  //           // Saving the dimensions of the first image:
+  //           slideshow.width = this.width;
+  //           slideshow.height = this.height;
+  //         }
+  //         // Rendering the modified versions of the images:
+  //         createCanvasOverlay(this);
+  //       });
+  //     }
 
-    $('#slideshow .arrow').click(function(){
-      var li            = slides.eq(current),
-        canvas        = li.find('canvas'),
-        nextIndex    = 0;
+  //     $('#slideshow .arrow').click(function(){
+  //       var li            = slides.eq(current),
+  //         canvas        = li.find('canvas'),
+  //         nextIndex    = 0;
 
-      // Depending on whether this is the next or previous
-      // arrow, calculate the index of the next slide accordingly.
+  //       // Depending on whether this is the next or previous
+  //       // arrow, calculate the index of the next slide accordingly.
 
-      if($(this).hasClass('next')){
-        nextIndex = current >= slides.length-1 ? 0 : current+1;
-      }
-      else {
-        nextIndex = current <= 0 ? slides.length-1 : current-1;
-      }
+  //       if($(this).hasClass('next')){
+  //         nextIndex = current >= slides.length-1 ? 0 : current+1;
+  //       }
+  //       else {
+  //         nextIndex = current <= 0 ? slides.length-1 : current-1;
+  //       }
 
-      var next = slides.eq(nextIndex);
+  //       var next = slides.eq(nextIndex);
 
-      if(supportCanvas){
+  //       if(supportCanvas){
 
-        // This browser supports canvas, fade it into view:
+  //         // This browser supports canvas, fade it into view:
 
-        canvas.fadeIn(function(){
+  //         canvas.fadeIn(function(){
 
-          // Show the next slide below the current one:
-          next.show();
-          current = nextIndex;
+  //           // Show the next slide below the current one:
+  //           next.show();
+  //           current = nextIndex;
 
-          // Fade the current slide out of view:
-          li.fadeOut(function(){
-            li.removeClass('slideActive');
-            canvas.hide();
-            next.addClass('slideActive');
-          });
-        });
-      }
-      else {
+  //           // Fade the current slide out of view:
+  //           li.fadeOut(function(){
+  //             li.removeClass('slideActive');
+  //             canvas.hide();
+  //             next.addClass('slideActive');
+  //           });
+  //         });
+  //       }
+  //       else {
 
-        // This browser does not support canvas.
-        // Use the plain version of the slideshow.
+  //         // This browser does not support canvas.
+  //         // Use the plain version of the slideshow.
 
-        current=nextIndex;
-        next.addClass('slideActive').show();
-        li.removeClass('slideActive').hide();
-      }
-    });
+  //         current=nextIndex;
+  //         next.addClass('slideActive').show();
+  //         li.removeClass('slideActive').hide();
+  //       }
+  //     });
 
-  },100);
+  //   },100);
 
 
-  // This function takes an image and renders
-  // a version of it similar to the Overlay blending
-  // mode in Photoshop.
+  //   // This function takes an image and renders
+  //   // a version of it similar to the Overlay blending
+  //   // mode in Photoshop.
 
-  function createCanvasOverlay(image){
+  //   function createCanvasOverlay(image){
 
-    var canvas            = document.createElement('canvas'),
-      canvasContext    = canvas.getContext("2d");
+  //     var canvas            = document.createElement('canvas'),
+  //       canvasContext    = canvas.getContext("2d");
 
-    // Make it the same size as the image
-    canvas.width = slideshow.width;
-    canvas.height = slideshow.height;
+  //     // Make it the same size as the image
+  //     canvas.width = slideshow.width;
+  //     canvas.height = slideshow.height;
 
-    // Drawing the default version of the image on the canvas:
-    canvasContext.drawImage(image,0,0);
+  //     // Drawing the default version of the image on the canvas:
+  //     canvasContext.drawImage(image,0,0);
 
-    // Taking the image data and storing it in the imageData array:
-    var imageData    = canvasContext.getImageData(0,0,canvas.width,canvas.height),
-      data        = imageData.data;
+  //     // Taking the image data and storing it in the imageData array:
+  //     var imageData    = canvasContext.getImageData(0,0,canvas.width,canvas.height),
+  //       data        = imageData.data;
 
-    // Loop through all the pixels in the imageData array, and modify
-    // the red, green, and blue color values.
+  //     // Loop through all the pixels in the imageData array, and modify
+  //     // the red, green, and blue color values.
 
-    for(var i = 0,z=data.length;i<z;i++){
+  //     for(var i = 0,z=data.length;i<z;i++){
 
-      // The values for red, green and blue are consecutive elements
-      // in the imageData array. We modify the three of them at once:
+  //       // The values for red, green and blue are consecutive elements
+  //       // in the imageData array. We modify the three of them at once:
 
-      data[i] = ((data[i] < 128) ? (2*data[i]*data[i] / 255) :
-        (255 - 2 * (255 - data[i]) * (255 - data[i]) / 255));
-      data[++i] = ((data[i] < 128) ? (2*data[i]*data[i] / 255) :
-        (255 - 2 * (255 - data[i]) * (255 - data[i]) / 255));
-      data[++i] = ((data[i] < 128) ? (2*data[i]*data[i] / 255) :
-        (255 - 2 * (255 - data[i]) * (255 - data[i]) / 255));
+  //       data[i] = ((data[i] < 128) ? (2*data[i]*data[i] / 255) :
+  //         (255 - 2 * (255 - data[i]) * (255 - data[i]) / 255));
+  //       data[++i] = ((data[i] < 128) ? (2*data[i]*data[i] / 255) :
+  //         (255 - 2 * (255 - data[i]) * (255 - data[i]) / 255));
+  //       data[++i] = ((data[i] < 128) ? (2*data[i]*data[i] / 255) :
+  //         (255 - 2 * (255 - data[i]) * (255 - data[i]) / 255));
 
-      // After the RGB channels comes the alpha value, which we leave the same.
-      ++i;
-    }
+  //       // After the RGB channels comes the alpha value, which we leave the same.
+  //       ++i;
+  //     }
 
-    // Putting the modified imageData back on the canvas.
-    canvasContext.putImageData(imageData,0,0,0,0,imageData.width,imageData.height);
+  //     // Putting the modified imageData back on the canvas.
+  //     canvasContext.putImageData(imageData,0,0,0,0,imageData.width,imageData.height);
 
-    // Inserting the canvas in the DOM, before the image:
-    image.parentNode.insertBefore(canvas,image);
-  }
+  //     // Inserting the canvas in the DOM, before the image:
+  //     image.parentNode.insertBefore(canvas,image);
+  //   }
 
 });

@@ -3,7 +3,7 @@
   <head>
     <title>HTML5 Canvas Slideshow</title>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <!-- <script src="js/script.js"></script> -->
+    <script src="js/script.js"></script>
     <script src="../shared/js/materialize.js"></script>
     <script src="../shared/js/init.js"></script>
     <link href="../shared/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -24,7 +24,7 @@
             <li><a href="#!">Transition 3</a></li>
           </ul>
         </div>
-        <div id="slideshowToolbar" class="col s4">
+        <div id="action-buttons" class="col s4">
           <a id="prev_btn" class="btn-floating btn-large waves-effect waves-light teal"><i class="material-icons">skip_previous</i></a>
           <a id="start_btn" class="btn-floating btn-large waves-effect waves-light teal"><i class="material-icons">play_arrow</i></a>
           <a id="next_btn" class="btn-floating btn-large waves-effect waves-light teal"><i class="material-icons">skip_next</i></a>
@@ -39,11 +39,10 @@
         </div>
       </div>
       <div id="slideshow" class="center" width="720" height="405">
-        <!-- Example image -->
-        <img src="img/resized/3.jpg" style='height: 100%; width: 100%; object-fit: contain' alt=""/>
         <canvas id="canvas" width="800" height="480">
           Your browser does not support the HTML5 canvas tag.
         </canvas>
+        <p id="caption"></p>
       </div>
     </div>
   </body>
