@@ -3,9 +3,8 @@
   <head>
     <title>HTML5 Canvas Slideshow</title>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/script.js"></script>
     <script src="../shared/js/materialize.js"></script>
-    <script src="../shared/js/init.js"></script>
+    <script src="js/script.js"></script>
     <link href="../shared/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="../shared/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -13,35 +12,35 @@
 
   <body class="grey">
 
-      <div class="row center grey lighten-2">
-        <h2 class="teal-text">HTML5 Canvas Slideshow</h2>
-        <div class="col s4">
-          <a class='dropdown-button btn' data-activates='dropdown1'>Transition Type</a>
-          <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="#!">Transition 1</a></li>
-            <li><a href="#!">Transition 2</a></li>
-            <li><a href="#!">Transition 3</a></li>
-          </ul>
-        </div>
-        <div id="action-buttons" class="col s4">
-          <a id="prev_btn" class="btn-floating btn-large waves-effect waves-light teal"><i class="material-icons">skip_previous</i></a>
-          <a id="start_btn" class="btn-floating btn-large waves-effect waves-light teal"><i class="material-icons">play_arrow</i></a>
-          <a id="next_btn" class="btn-floating btn-large waves-effect waves-light teal"><i class="material-icons">skip_next</i></a>
-        </div>
-        <div class="switch col s4">
-          <label class="teal-text">
-            Sequential
-            <input type="checkbox" id="mySwitch">
-            <span class="lever"></span>
-            Random
-          </label>
-        </div>
+    <div class="row center grey lighten-2">
+      <h2 class="teal-text">HTML5 Canvas Slideshow</h2>
+      <div class="col s4">
+
+        <select id="transition-box">
+          <option value="" disabled selected>Select a transition style</option>
+          <option value="0">None</option>
+          <option value="1">Fade In</option>
+        </select>
       </div>
-      <div id="slideshow" class="center">
-        <canvas id="canvas" width="800" height="480">
-          Your browser does not support the HTML5 canvas tag.
-        </canvas>
-        <p id="caption"></p>
+      <div id="action-buttons" class="col s4">
+        <a id="prev_btn" class="btn-floating btn-large waves-effect waves-light teal"><i class="material-icons">skip_previous</i></a>
+        <a id="start_btn" class="btn-floating btn-large waves-effect waves-light teal"><i class="material-icons">play_arrow</i></a>
+        <a id="next_btn" class="btn-floating btn-large waves-effect waves-light teal"><i class="material-icons">skip_next</i></a>
       </div>
+      <div class="switch col s4">
+        <label class="teal-text">
+          Sequential
+          <input type="checkbox" id="mySwitch">
+          <span class="lever"></span>
+          Random
+        </label>
+      </div>
+    </div>
+    <div id="slideshow" class="center">
+      <canvas id="canvas" width="800" height="480">
+        Your browser does not support the HTML5 canvas tag.
+      </canvas>
+      <p id="caption"></p>
+    </div>
   </body>
 </html>

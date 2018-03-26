@@ -1,3 +1,3 @@
 part1 = 5 hrs
 part2 = 10 hrs
-part3 = 2 hrs
+part3 = 6 hrs

@@ -6,9 +6,13 @@ var timing = 0;
 var alpha = 0;
 var image;
 var paused = true;
-var transition = "fadein";
+var transition = "none";
 var photoInterval;
 var animation;
+
+$(document).ready(function() {
+  $('select').material_select();
+});
 
 function loadimgs() {
   $.ajax({
@@ -47,6 +51,7 @@ function displayImage(image, caption, transition) {
   var ctx = canvas.getContext("2d");
   ctx.clearRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
   if (transition == "none") {
+    cancelAnimationFrame(animation);
     ctx.globalAlpha = 1;
     drawImageScaled(image, ctx);
   }
@@ -56,9 +61,6 @@ function displayImage(image, caption, transition) {
     drawImageScaled(image, ctx);
     fadeIn(image, caption);
   }
-  // else if (transition == "rotate") {
-
-  // }
   document.getElementById("caption").innerHTML = caption;
 }
 
@@ -138,6 +140,22 @@ function prevImage() {
   displayImage(imageObjects[index], imageObjects[index].caption, transition);
 }
 
+function changeTransition(dropIndex) {
+  if (dropIndex == '1') {
+    transition = "none";
+  }
+  else if (dropIndex == "2") {
+    transition = "fadein";
+  }
+  if (!paused) {
+    window.clearInterval(displayInt);
+    displayInt = window.setInterval(function() {
+      calculateIndex();
+      displayImage(imageObjects[index], imageObjects[index].caption, transition);
+    }, 1000);
+  }
+}
+
 $(window).load(function(){
   var supportCanvas = 'getContext' in document.createElement('canvas');
   loadimgs();
@@ -149,5 +167,9 @@ $(window).load(function(){
 
   document.getElementById("mySwitch").addEventListener('change', function() {
     switchListener(this.checked);
+  });
+
+  $("#transition-box").on('change', function() {
+    changeTransition($(this)[0].selectedIndex);
   });
 });
