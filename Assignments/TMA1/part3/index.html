@@ -10,8 +10,15 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
-  <body class="grey">
+  <nav class="grey darken-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="right hide-on-med-and-down">
+        <li><a class="white-text" href="index.html">Home</a></li>
+      </ul>
+    </div>
+  </nav>
 
+  <body class="grey lighten-2">
     <div class="row center grey lighten-2">
       <h2 class="teal-text">HTML5 Canvas Slideshow</h2>
       <div class="col s4">
@@ -36,8 +43,8 @@
         </label>
       </div>
     </div>
-    <div id="slideshow" class="center">
-      <canvas id="canvas" width="800" height="480">
+    <div id="slideshow" class="center grey">
+      <canvas id="canvas" width="800" height="480" class="canvas">
         Your browser does not support the HTML5 canvas tag.
       </canvas>
       <p id="caption"></p>
