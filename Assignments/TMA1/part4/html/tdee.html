@@ -1,27 +1,26 @@
-<form name="tdee" action="JavaScript:tdeeCalc()" method="POST">
+<form name="calcform" action="JavaScript:calculate()" method="POST">
   <p>
     <label>Gender:
-      <p>
-        <input name="gender" type="radio" id="m" />
+      <p class="gender">
+        <input name="gender" type="radio" id="m"/>
         <label for="m">Male</label>
-        <input name="gender" type="radio" id="f" />
+        <input name="gender" type="radio" id="f"/>
         <label for="f">Female</label>
       </p>
     </label>
   </p>
   <p>
     <label>Age (years):<br>
-      <input name="age" type="text">
+      <input name="age" type="text" oninput="checkCalc(this.name)">
     </label>
   </p>
   <p>
     <label>Weight (lbs):<br>
-      <input name="weight" type="text">
+      <input name="weight" type="text" oninput="checkCalc(this.name)">
     </label>
   </p>
   <label>Height: </label>
   <select id="height">
-    <option value="" disabled selected>Choose your option</option>
     <option value="4ft7in">4ft 7in</option>
     <option value="4ft8in">4ft 8in</option>
     <option value="4ft9in">4ft 9in</option>
@@ -59,7 +58,6 @@
   <br>
   <label>Activity: </label>
   <select id="activity">
-    <option value="" disabled selected>Choose your option</option>
     <option value="s">Sedentary (office job)</option>
     <option value="le">Light Exercise (1-2 days / week)</option>
     <option value="me">Moderate Exercise (3-4 days / week)</option>
@@ -67,7 +65,7 @@
     <option value="a">Athlete (2x per day)</option>
   </select>
   <p>
-    <a class="waves-effect waves-light btn">Calculate</a>
+    <button class="btn waves-effect waves-light" type="submit" id="calc">Calculate</button>
     <a class="waves-effect waves-light btn">Clear</a>
   </p>
   <br>

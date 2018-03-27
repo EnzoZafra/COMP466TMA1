@@ -1,8 +1,7 @@
-<form name="unitconverter" action="JavaScript:convertCheck()" method="POST">
+<form name="calcform" action="JavaScript:calculate()" method="POST">
   <p>
     <label>
-      <select name="convertChoice" onchange="unitChange(this.selectedIndex)">
-        <option selected="" disabled>Select measurement type</option>
+      <select id="measuretype">
         <option value="w">Weight</option>
         <option value="l">Length</option>
         <option value="a">Area</option>
@@ -11,13 +10,13 @@
     </label>
   </p>
   <div>
-    <div id="Oval">
+    <div>
       <p>Original value:</p>
       <div class="row">
-        <input class="col s6 m6 l6" name="original" type="text">
-        <div class="col s6 m6 l6 oUnit" id="oUnit">
+        <input class="col s6" name="original" type="text" oninput="checkCalc(this.name)">
+        <div class="col s6">
           <label>
-            <select name="oUnit">
+            <select id="origunit">
               <option>Kilo</option>
               <option>Hecto</option>
               <option>Deka</option>
@@ -35,13 +34,13 @@
         </div>
       </div>
     </div>
-    <div id="Cval">
+    <div>
       <p>Converted value:</p>
       <div class="row">
-        <input class="col s6 m6 l6" name="converted" type="text" readonly="">
-        <div class="col s6 m6 l6 cUnit" id="cUnit">
+        <input class="col s6 m6 l6" id="converted" type="text" readonly="">
+        <div class="col s6 m6 l6">
           <label>
-            <select name="cUnit">
+            <select id="convunit">
               <option>Imperial ton</option>
               <option>Stone</option>
               <option>Pound</option>
@@ -59,7 +58,7 @@
   </div>
 
   <p>
-    <a class="waves-effect waves-light btn">Calculate</a>
+    <button class="btn waves-effect waves-light" type="submit" id="calc">Calculate</button>
     <a class="waves-effect waves-light btn">Clear</a>
   </p>
 </form>
