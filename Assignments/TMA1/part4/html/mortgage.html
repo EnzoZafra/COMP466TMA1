@@ -1,0 +1,39 @@
+<form name="mortgage" action="JavaScript:mortgageCalc()" method="POST">
+  <p>
+    <label>Purchase Price ($):<br>
+      <input name="purchase" type="text">
+    </label>
+  </p>
+  <p>
+    <label>Down Payment ($):<br>
+      <input name="down" type="text">
+    </label>
+  </p>
+  <p>
+    <label>Interest Rate (%):<br>
+      <input name="rate" type="text">
+    </label>
+  </p>
+  <p>
+    <label>Amortization Period (years):<br>
+      <input name="amortization" type="text">
+    </label>
+  </p>
+  <label>Payment Frequency: </label>
+  <select id="freq">
+    <option value="" disabled selected>Choose your option</option>
+    <option value="w">Weekly</option>
+    <option value="bw">Bi-Weekly</option>
+    <option value="m">Monthly</option>
+  </select>
+  <p>
+    <a class="waves-effect waves-light btn">Calculate</a>
+    <a class="waves-effect waves-light btn">Clear</a>
+  </p>
+  <br>
+  <hr>
+  <h4>My Payment Results</h4>
+  <div class="card-panel grey lighten-3">
+    <h5 id="result" class="teal-text result">Test result</h5>
+  </div>
+</form>

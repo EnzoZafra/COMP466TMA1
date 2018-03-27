@@ -1,0 +1,65 @@
+<form name="unitconverter" action="JavaScript:convertCheck()" method="POST">
+  <p>
+    <label>
+      <select name="convertChoice" onchange="unitChange(this.selectedIndex)">
+        <option selected="" disabled>Select measurement type</option>
+        <option value="w">Weight</option>
+        <option value="l">Length</option>
+        <option value="a">Area</option>
+        <option value="v">Volume</option>
+      </select>
+    </label>
+  </p>
+  <div>
+    <div id="Oval">
+      <p>Original value:</p>
+      <div class="row">
+        <input class="col s6 m6 l6" name="original" type="text">
+        <div class="col s6 m6 l6 oUnit" id="oUnit">
+          <label>
+            <select name="oUnit">
+              <option>Kilo</option>
+              <option>Hecto</option>
+              <option>Deka</option>
+              <option>Meter</option>
+              <option>Deci</option>
+              <option>Centi</option>
+              <option>Milli</option>
+              <option>Pound</option>
+              <option>Ounce</option>
+              <option>Litre</option>
+              <option>Inches</option>
+              <option>Feet</option>
+            </select>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div id="Cval">
+      <p>Converted value:</p>
+      <div class="row">
+        <input class="col s6 m6 l6" name="converted" type="text" readonly="">
+        <div class="col s6 m6 l6 cUnit" id="cUnit">
+          <label>
+            <select name="cUnit">
+              <option>Imperial ton</option>
+              <option>Stone</option>
+              <option>Pound</option>
+              <option>Ounce</option>
+              <option>Metric tonne</option>
+              <option>Kilogram</option>
+              <option>Gram</option>
+              <option>Milligram</option>
+              <option>Microgram</option>
+            </select>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>
+    <a class="waves-effect waves-light btn">Calculate</a>
+    <a class="waves-effect waves-light btn">Clear</a>
+  </p>
+</form>

@@ -1,0 +1,79 @@
+<form name="tdee" action="JavaScript:tdeeCalc()" method="POST">
+  <p>
+    <label>Gender:
+      <p>
+        <input name="gender" type="radio" id="m" />
+        <label for="m">Male</label>
+        <input name="gender" type="radio" id="f" />
+        <label for="f">Female</label>
+      </p>
+    </label>
+  </p>
+  <p>
+    <label>Age (years):<br>
+      <input name="age" type="text">
+    </label>
+  </p>
+  <p>
+    <label>Weight (lbs):<br>
+      <input name="weight" type="text">
+    </label>
+  </p>
+  <label>Height: </label>
+  <select id="height">
+    <option value="" disabled selected>Choose your option</option>
+    <option value="4ft7in">4ft 7in</option>
+    <option value="4ft8in">4ft 8in</option>
+    <option value="4ft9in">4ft 9in</option>
+    <option value="4ft10in">4ft 10in</option>
+    <option value="4ft11in">4ft 11in</option>
+    <option value="5ft0in">5ft 0in</option>
+    <option value="5ft1in">5ft 1in</option>
+    <option value="5ft2in">5ft 2in</option>
+    <option value="5ft3in">5ft 3in</option>
+    <option value="5ft4in">5ft 4in</option>
+    <option value="5ft5in">5ft 5in</option>
+    <option value="5ft6in">5ft 6in</option>
+    <option value="5ft7in">5ft 7in</option>
+    <option value="5ft8in">5ft 8in</option>
+    <option value="5ft9in">5ft 9in</option>
+    <option value="5ft10in">5ft 10in</option>
+    <option value="5ft11in">5ft 11in</option>
+    <option value="6ft0in">6ft 0in</option>
+    <option value="6ft1in">6ft 1in</option>
+    <option value="6ft2in">6ft 2in</option>
+    <option value="6ft3in">6ft 3in</option>
+    <option value="6ft4in">6ft 4in</option>
+    <option value="6ft5in">6ft 5in</option>
+    <option value="6ft6in">6ft 6in</option>
+    <option value="6ft7in">6ft 7in</option>
+    <option value="6ft8in">6ft 8in</option>
+    <option value="6ft9in">6ft 9in</option>
+    <option value="6ft10in">6ft 10in</option>
+    <option value="6ft11in">6ft 11in</option>
+    <option value="7ft0in">7ft 0in</option>
+    <option value="7ft1in">7ft 1in</option>
+    <option value="7ft2in">7ft 2in</option>
+    <option value="7ft3in">7ft 3in</option>
+  </select>
+  <br>
+  <label>Activity: </label>
+  <select id="activity">
+    <option value="" disabled selected>Choose your option</option>
+    <option value="s">Sedentary (office job)</option>
+    <option value="le">Light Exercise (1-2 days / week)</option>
+    <option value="me">Moderate Exercise (3-4 days / week)</option>
+    <option value="he">Heavy Exercise (6-7 days / week)</option>
+    <option value="a">Athlete (2x per day)</option>
+  </select>
+  <p>
+    <a class="waves-effect waves-light btn">Calculate</a>
+    <a class="waves-effect waves-light btn">Clear</a>
+  </p>
+  <br>
+  <hr>
+  <h4>Your Maintenance Calories</h4>
+  <div class="card-panel grey lighten-3">
+    <h5 id="result" class="teal-text result">Test result</h5>
+  </div>
+</form>
