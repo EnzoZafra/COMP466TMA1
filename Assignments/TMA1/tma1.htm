@@ -13,8 +13,8 @@
       <h4>Assignment 1</h2>
       <h5>Lorenzo Zafra - 3356915</h3>
       <h6><b>Date began:</b> January 10, 2018</h4>
-      <h6><b>Date completed:</b> March x, 2018</h4>
-      <h6><b>Estimated hours spent:</b> x hours</h4>
+      <h6><b>Date completed:</b> March 28, 2018</h4>
+      <h6><b>Estimated hours spent:</b> 31 hours</h4>
     </div>
 
     <hr>
@@ -41,11 +41,11 @@
       <b>Analysis and Design of the Web Application</b>
       <p>
         When designing the XML file, it should be structured like a tree structure
-         where elements have parents and parents have childs. It's also important to
+        where elements have parents and parents have childs. It's also important to
         separate data into subsections like a regular text file resume. In this way, the
-         style sheet is able to pin-point which values to get easily and also in a more
-         organized fashion. When adding data such as work experience or educational experience,
-         we can structure it in a way such that the XSL sheet iterates through the nodes
+        style sheet is able to pin-point which values to get easily and also in a more
+        organized fashion. When adding data such as work experience or educational experience,
+        we can structure it in a way such that the XSL sheet iterates through the nodes
         and sees that there is more than one and display the information accordingly.
       </p>
 
@@ -217,19 +217,20 @@
       <h4>Part 3 - Slideshow Documentation</h4>
       <a href="part3/index.html"><b>Click here to access part 3</b></a><br>
       <b>Description</b>
+      <p>
         For this project, you are required to create a slideshow web application using HTML5 canvas
-        and other web technologies you have learned so far. The requirements are as follows:     <p>
+        and other web technologies you have learned so far. The requirements are as follows:
 
-          <ol>
-            <li>The slideshow should be drawn on the canvas; </li>
-            <li>There should be a caption for each image in the show;</li>
-            <li>There should be a button to start/stop the show;</li>
-            <li>There should be a control to toggle the show between random and sequential;</li>
-            <li>There should be buttons to manually turn the show backward or forward, only if the show is in sequential mode;</li>
-            <li>There should be a dropdown list for users to select different transition/transformation effects for the show;</li>
-            <li>The data of the images should be in a JSON array so that images and their captions can be easily maintained;</li>
-            <li>To avoid copyright issues, you should use the images/photos you took. If you don’t have the images ready, please go around the place you live or work and take some good ones;</li>
-            <li> The show should have at least 20 nice pictures.</li>
+        <ol>
+          <li>The slideshow should be drawn on the canvas; </li>
+          <li>There should be a caption for each image in the show;</li>
+          <li>There should be a button to start/stop the show;</li>
+          <li>There should be a control to toggle the show between random and sequential;</li>
+          <li>There should be buttons to manually turn the show backward or forward, only if the show is in sequential mode;</li>
+          <li>There should be a dropdown list for users to select different transition/transformation effects for the show;</li>
+          <li>The data of the images should be in a JSON array so that images and their captions can be easily maintained;</li>
+          <li>To avoid copyright issues, you should use the images/photos you took. If you don’t have the images ready, please go around the place you live or work and take some good ones;</li>
+          <li> The show should have at least 20 nice pictures.</li>
         </ol>
 
       </p>
@@ -323,10 +324,159 @@
         To access the welcome page, assuming you are already hosting a webserver, click <a href="part3/index.html">here</a> or the link above.
         <br><br>
 
-        To change between random or sequential pictures, toggle the switch. <br>
-        To change between transition modes, select a mode in the dropbox <br>
-        Pausing and Playing is done by clicking the 'Play' button. <br>
-        Moving to the next picture or previous picture are only enabled in sequential mode.
+        - To change between random or sequential pictures, toggle the switch. <br>
+        - To change between transition modes, select a mode in the dropbox <br>
+        - Pausing and Playing is done by clicking the 'Play' button. <br>
+        - Moving to the next picture or previous picture are only enabled in sequential mode.
+      </p>
+    </div>
+
+    <hr>
+    <div class="container">
+      <h4>Part 4 - Utility Tools Documentation</h4>
+      <a href="part4/index.html"><b>Click here to access part 4</b></a><br>
+      <b>Description</b>
+      <p>
+        For this project, you are required to develop a web application that can provide users with the following utility tools:
+        <ul>
+          <li>Measurement converters: weights, lengths, areas, and volumes</li>
+          <li>A mortgage calculator</li>
+          <li>A utility tool that you think could be useful. You may need to do some research on the Web to build this last tool, and in the report you need to justify why you think it will be useful.</li>
+        </ul>
+
+        In order to get full marks for the above design and implementation, the following are required:
+        <ol>
+          <li>It must have an integrated and user-friendly interface for users to access each of the tools you designed.</li>
+          <li>You need to use JavaScript functions and built-in objects to implement the application.</li>
+          <li>At any time only one tool will be shown, to ensure a clean and tidy space for users to work with.</li>
+          <li>You need to use Ajax technologies to eliminate whole page update when switching from one utility to another.</li>
+          <li>You need to use event handler to calculate and show the result as soon as the user has given enough input to the system.</li>
+          <li>In the assignment report, you need to provide sufficient documentation for your work, including algorithms and formulas used for the tools. If you have used any resources, including documents</li>
+        </ol>
+      </p>
+
+      <b>My interpretation</b>
+      <p>
+        The goal for this assignment is to use all of the technologies we've learned so far to create 3 utility tools. The utility tools must be user friendly and
+        easy to use. Each tool must be event driven and should calculate the intended result when enough inputs are given by the user. Only one tool should be
+        displayed at any time. Showing the UI should be done using Ajax technologies so that a partial page can be updated asynchronously. Document any algorithms and formulas
+        used for the tools.
+      </p>
+
+      <b>Analysis and Design of the Web Application</b>
+      <p>
+        Each tool is displayed on the page by selecting a tab. When a tab is selected, an Ajax call for the tool's html file is sent then the page is partially update
+        to display the form for the corresponding tool. When the tool is loaded, a JavaScript parses through the form elements to store the names of the elements that require
+        the users input. Each of these elements have an event listener attached to them so that when the user changes or does an input, we can see if there is enough information to calculate
+        the result.
+        <br><br>
+
+        For the unit converter, the units that are enabled depends on the type of measurement. I handled disabling the elements by setting a class variable to the dropdown items.
+        For example, the unit 'pound' should be disabled for Length, Area and Volume. Therefore, I set the element's class to 'l a v'. When the user selects 'length', I use jQuery to
+        look for any elements with class 'l' and disable them. All elements are enabled when the user changes the measurement type.
+        <br>
+        To handle conversion, I first converted the original unit to a base (in my case: meter, gram or litre). Then I take this converted value and once again convert it to the unit that the user wants.
+        <br><br>
+
+        For the mortgage calculator, I first convert the amortization (years) to months by multiplying by 12. Then, I calculated th rate in decimal form over 12 months.
+        The total payment is then calculated using the formula found <a href="https://www.mtgprofessor.com/formulas.htm">here</a>. Depending on the user's input for frequency,
+        I take the calculated payment and convert it to a monthly, bi-weekly or weekly value.
+        <br><br>
+
+        The Total Daily Energy Expenditure calculator is used to calculate the amount of calories you burn per day. This tool is useful for anyone who wants to lose, gain or maintain weight (everyone).
+        By using the calculator, we know how much energy our body needs per day. From this value, we can eat a lower amount of calories to lose weight, eat a higher amount to gain weight or eat the same
+        amount of calories from the calculator to maintain your weight.
+        <br><br>
+
+        To calculate the result, I first convert the height to centimeters by using regex to transform (5ft10in) to centimeters. Then, I convert the weight in pounds to grams so that I can
+        use the formula given <a href="http://www.superskinnyme.com/calculate-tdee.html">here</a>. The basal metabolic rate is the amount of energy used without any activity at all. I first calculate
+        this value depending on the gender of the user. Then, the TDEE is calculated by taking the BMR and then multiplying it by the activity factor.
+        <br><br>
+
+        Various functions used in the web application are documented below.
+
+      </p>
+
+      <b>Documentation</b>
+      <p>
+        <b>JavaScript Functions: </b>
+        <p>loadrequired()</p>
+        <ul>
+          <li>- Loops through the form elements in the page and appends them in a dictionary for later use</li>
+          <li>- Adds event listeners to every form input in the page</li>
+        </ul>
+        <p>verifyInput()</p>
+        <ul>
+          <li>- Checks if every form has a valid input</li>
+          <li>- Converts the form values to an integer if needed</li>
+        </ul>
+        <p>convertHeight(height)</p>
+        <ul>
+          <li>- Uses regex to convert the height in the form '5ft10in' to centimeters</li>
+          <li>- The pattern (.*)ft(.*)in is used to group the integers</li>
+          <li>- Multiply and add the values to get the height in centimeters</li>
+        </ul>
+        <p>calculate()</p>
+        <ul>
+          <li>- Calls the corresponding calculate function depending on the tool being used</li>
+        </ul>
+        <p>calculateTDEE()</p>
+        <ul>
+          <li>- Get the inputs from the dictionary that is filled by the form's event listeners</li>
+          <li>- Convert the weight and height to the units that are needed in the formula</li>
+          <li>- Calculate the Basal Metabolic Rate (BMR) depending on the gender of the user</li>
+          <li>- Calculate the TDEE using the BMR and the activity factor selected from the dropdown</li>
+        </ul>
+        <p>calculateMortgage()</p>
+        <ul>
+          <li>- Get the inputs from the dictionary that is filled by the form's event listeners</li>
+          <li>- Calculate total price paid by taking purchase price minus down payment</li>
+          <li>- Calculate the interest rate in decimals over 12 months</li>
+          <li>- Calculate the payment paid using the formula in the link that can be found below</li>
+          <li>- Convert the values to Monthly, Bi-Weekly or Weekly then display to the user</li>
+        </ul>
+        <p>calculateUnit()</p>
+        <ul>
+          <li>- Get the inputs from the dictionary that is filled by the form's event listeners</li>
+          <li>- Check if Area or Volume is selected, if so, set multiplier to 2 or 3 respectively</li>
+          <li>- Convert the value and the unit given to a base value (meters)</li>
+          <li>- Put the converted value to the power of the multiplier to take into account the dimensions of the unit</li>
+          <li>- After converting the value, convert again. This time taking the converted value and getting the wanted units.</li>
+          <li>- Display results to the user</li>
+        </ul>
+        <p>listenTDEE() / listenMort() / listenUnit()</p>
+        <ul>
+          <li>- Used to set event listeners to Materialize CSS elements</li>
+          <li>- Each listener checks if a value has been selected then appends to a dictionary the value</li>
+        </ul>
+        <p>clearTDEE() / clearMortgage() / clearUnit()</p>
+        <ul>
+          <li>- Used to clear all the form inputs and the results</li>
+          <li>- Called when the 'Clear' button is clicked</li>
+        </ul>
+        <p>enableAll()</p>
+        <ul>
+          <li>- Uses jQuery to enable all the elements with the given class name</li>
+        </ul>
+        <p>changeEnable()</p>
+        <ul>
+          <li>- Uses jQuery to disable elements with a given class name</li>
+        </ul>
+      </p>
+
+      <b>Set up and running</b>
+      <p>
+        To access the welcome page, assuming you are already hosting a webserver, click <a href="part4/index.html">here</a> or the link above.
+        <br><br>
+
+      </p>
+
+      <b>Extra Information</b>
+      <p>
+        Materialize CSS was used for this whole assignment as approved by Harris Wang. <br>
+        Formulas used can be found in the links below: <br>
+        TDEE formula: <a href="http://www.superskinnyme.com/calculate-tdee.html">http://www.superskinnyme.com/calculate-tdee.html</a> <br>
+        Mortgage formula: <a href="https://www.mtgprofessor.com/formulas.htm">https://www.mtgprofessor.com/formulas.htm</a>
       </p>
     </div>
 

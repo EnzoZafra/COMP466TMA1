@@ -69,7 +69,6 @@ function convertWeight(weight) {
 }
 
 function calculate() {
-  console.log("calculating " + tabclicked);
   if (tabclicked == "unitconverter") {
     calculateUnit();
   }
@@ -220,7 +219,6 @@ function calculateUnit() {
     base = base * Mat.pow(0.3048, multiplier);
   }
 
-  console.log(base);
   var converted;
 
   if (convunit.toLowerCase() == "kilo") {
@@ -269,7 +267,6 @@ function calculateUnit() {
   else if (convunit.toLowerCase() == "feet") {
     converted = base / Math.pow(0.3048, multiplier);
   }
-  console.log(converted);
 
   var convresult = document.getElementById("converted");
   convresult.value = converted.toString().replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
@@ -435,7 +432,6 @@ function enableAll() {
 
 function changeEnabled(measuretype) {
   enableAll();
-  console.log(measuretype);
   $('option.' + measuretype).each(function( index, element ) {
     $(element).prop('disabled', true);
   });

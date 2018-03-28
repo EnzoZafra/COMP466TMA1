@@ -147,8 +147,6 @@ function checkAnswer() {
     else if (value == "fill") {
       ans = $("#" + key).val();
     }
-    console.log("answer: " + ans);
-    console.log("valid answer: " + validans[key]);
     if (ans == validans[key]) {
       score++;
     }
