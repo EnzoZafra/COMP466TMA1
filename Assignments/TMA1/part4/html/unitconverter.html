@@ -2,10 +2,10 @@
   <p>
     <label>
       <select id="measuretype">
-        <option value="w">Weight</option>
-        <option value="l">Length</option>
-        <option value="a">Area</option>
-        <option value="v">Volume</option>
+        <option value="w">Weight (metric - grams)</option>
+        <option value="l">Length (metric - meters)</option>
+        <option value="a">Area (metric - meters)</option>
+        <option value="v">Volume (metric - litres)</option>
       </select>
     </label>
   </p>
@@ -20,15 +20,18 @@
               <option>Kilo</option>
               <option>Hecto</option>
               <option>Deka</option>
-              <option>Meter</option>
+              <option class="w">Meter</option>
+              <option class="l a">Litre</option>
+              <option class="l a v">Gram</option>
               <option>Deci</option>
               <option>Centi</option>
               <option>Milli</option>
-              <option>Pound</option>
-              <option>Ounce</option>
-              <option>Litre</option>
-              <option>Inches</option>
-              <option>Feet</option>
+              <option>Micro</option>
+              <option>Nano</option>
+              <option class="l a v">Pound</option>
+              <option class="l a v">Ounce</option>
+              <option class="w">Inches</option>
+              <option class="w">Feet</option>
             </select>
           </label>
         </div>
@@ -41,15 +44,21 @@
         <div class="col s6 m6 l6">
           <label>
             <select id="convunit">
-              <option>Imperial ton</option>
-              <option>Stone</option>
-              <option>Pound</option>
-              <option>Ounce</option>
-              <option>Metric tonne</option>
-              <option>Kilogram</option>
-              <option>Gram</option>
-              <option>Milligram</option>
-              <option>Microgram</option>
+              <option>Kilo</option>
+              <option>Hecto</option>
+              <option>Deka</option>
+              <option class="w">Meter</option>
+              <option class="l a">Litre</option>
+              <option class="l a v">Gram</option>
+              <option>Deci</option>
+              <option>Centi</option>
+              <option>Milli</option>
+              <option>Micro</option>
+              <option>Nano</option>
+              <option class="l a v">Pound</option>
+              <option class="l a v">Ounce</option>
+              <option class="w">Inches</option>
+              <option class="w">Feet</option>
             </select>
           </label>
         </div>

@@ -28,7 +28,11 @@ function loadrequired(tab) {
 
 function verifyInput() {
   if (tabclicked == "unitconverter") {
-    // TODO:
+    args['original'] = parseFloat(args['original']);
+    if (isNaN(args['original']) || !args['measuretype'] || !args['origunit'] || !args['convunit']) {
+      return false;
+    }
+    return true;
   }
   else if (tabclicked == "mortgage") {
     args['purchase'] = parseInt(args['purchase']);
@@ -52,7 +56,6 @@ function verifyInput() {
 }
 
 function convertHeight(height) {
-  // var pattern = /(.*)ft(.*)in/;
   var pattern = new RegExp('(.*)ft(.*)in');
   var match = pattern.exec(height);
   var ft = parseInt(match[0]);
@@ -68,7 +71,7 @@ function convertWeight(weight) {
 function calculate() {
   console.log("calculating " + tabclicked);
   if (tabclicked == "unitconverter") {
-    // TODO:
+    calculateUnit();
   }
   else if (tabclicked == "mortgage") {
     calculateMortgage();
@@ -154,6 +157,116 @@ function calculateMortgage() {
   result.innerHTML = output;
 }
 
+function calculateUnit() {
+  var original =  args['original'];
+  var convunit = args['convunit'];
+  var origunit = args['origunit'];
+  var measuretype = args['measuretype'];
+
+  var base = original;
+
+  // TODO, take into account the degree (if volume, area or length)
+
+  if (origunit.toLowerCase() == "kilo") {
+    base = base * 1000;
+  }
+  else if (origunit.toLowerCase() == "hecto") {
+    base = base * 100;
+  }
+  else if (origunit.toLowerCase() == "deka") {
+    base = base * 10;
+  }
+  else if (origunit.toLowerCase() == "meter") {
+    base = base;
+  }
+  else if (origunit.toLowerCase() == "deci") {
+    base = base * 0.1;
+  }
+  else if (origunit.toLowerCase() == "centi") {
+    base = base * 0.01;
+  }
+  else if (origunit.toLowerCase() == "milli") {
+    base = base * 0.001;
+  }
+  else if (origunit.toLowerCase() == "micro") {
+    base = base * 0.00001;
+  }
+  else if (origunit.toLowerCase() == "nano") {
+    base = base * 0.000000001;
+  }
+  else if (origunit.toLowerCase() == "pound") {
+    // gram
+    base = base * 453.592;
+  }
+  else if (origunit.toLowerCase() == "ounce") {
+    base = base * 28.3495231;
+  }
+  else if (origunit.toLowerCase() == "litre") {
+    base = base;
+  }
+  else if (origunit.toLowerCase() == "gram") {
+    base = base;
+  }
+  else if (origunit.toLowerCase() == "inches") {
+    base = base * 0.0254;
+  }
+  else if (origunit.toLowerCase() == "feet") {
+    base = base * 0.3048;
+  }
+
+  var converted;
+
+  if (convunit.toLowerCase() == "kilo") {
+    converted = base / 1000;
+  }
+  else if (convunit.toLowerCase() == "hecto") {
+    converted = base / 100;
+  }
+  else if (convunit.toLowerCase() == "deka") {
+    converted = base / 10;
+  }
+  else if (convunit.toLowerCase() == "meter") {
+    converted = base;
+  }
+  else if (convunit.toLowerCase() == "deci") {
+    converted = base / 0.1;
+  }
+  else if (convunit.toLowerCase() == "centi") {
+    converted = base / 0.01;
+  }
+  else if (convunit.toLowerCase() == "milli") {
+    converted = base / 0.001;
+  }
+  else if (convunit.toLowerCase() == "micro") {
+    converted = base / 0.00001;
+  }
+  else if (convunit.toLowerCase() == "nano") {
+    converted = base / 0.000000001;
+  }
+  else if (convunit.toLowerCase() == "pound") {
+    // gram
+    converted = base / 453.592;
+  }
+  else if (convunit.toLowerCase() == "ounce") {
+    converted = base / 28.3495231;
+  }
+  else if (convunit.toLowerCase() == "litre") {
+    converted = base;
+  }
+  else if (convunit.toLowerCase() == "gram") {
+    converted = base;
+  }
+  else if (convunit.toLowerCase() == "inches") {
+    converted = base / 0.0254;
+  }
+  else if (convunit.toLowerCase() == "feet") {
+    converted = base / 0.3048;
+  }
+
+  var convresult = document.getElementById("converted");
+  convresult.value = converted.toString().replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+}
+
 function checkCalc(name) {
   var element = document.getElementsByName(name);
   if (element && element[0].value ){
@@ -237,6 +350,7 @@ function listenUnit() {
   $("#measuretype").on('change', function() {
     args['measuretype'] = $(this).val();
     checkAllFilled();
+    changeEnabled(args['measuretype']);
   });
 
   args['convunit'] = $("#convunit").val();
@@ -290,4 +404,33 @@ function clearUnit() {
   var result = document.getElementById("result");
 
   result.innerHTML = "";
+}
+
+function enableAll() {
+  $('option.w').each(function( index, element ) {
+    $(element).prop('disabled', false);
+  });
+  $('option.l').each(function( index, element ) {
+    $(element).prop('disabled', false);
+  });
+  $('option.a').each(function( index, element ) {
+    $(element).prop('disabled', false);
+  });
+  $('option.v').each(function( index, element ) {
+    $(element).prop('disabled', false);
+  });
+
+  $('origunit').material_select();
+  $('convunit').material_select();
+}
+
+function changeEnabled(measuretype) {
+  enableAll();
+  console.log(measuretype);
+  $('option.' + measuretype).each(function( index, element ) {
+    $(element).prop('disabled', true);
+  });
+
+  $('#origunit').material_select();
+  $('#convunit').material_select();
 }
