@@ -32,9 +32,16 @@ function verifyInput() {
   }
   else if (tabclicked == "mortgage") {
     // TODO
+    args['purchase'] = parseInt(args['purchase']);
+    args['down'] = parseInt(args['down']);
+    args['rate'] = parseFloat(args['rate']);
+    args['amortization'] = parseInt(args['amortization']);
+    if (isNaN(args['purchase']) || isNaN(args['down']) || isNaN(args['rate']) || isNaN(args['amortization']) || !args['freq']) {
+      return false;
+    }
+    return true;
   }
   else if (tabclicked == "tdee") {
-    // TODO
     args['age'] = parseInt(args['age']);
     args['weight'] = parseInt(args['weight']);
 
@@ -65,7 +72,7 @@ function calculate() {
     // TODO:
   }
   else if (tabclicked == "mortgage") {
-    // TODO
+    calculateMortgage();
   }
   else if (tabclicked == "tdee") {
     calculateTDEE();
@@ -110,6 +117,45 @@ function calculateTDEE() {
 
   resultday.innerHTML = Math.round(tdee).toString() + " per day";
   resultweek.innerHTML = Math.round(tdee * 7).toString() + " per week";
+}
+
+function calculateMortgage() {
+  var purchaseprice = args['purchase'];
+  var down =  args['down'];
+  var rate = args['rate'];
+  var amortization = args['amortization'];
+  var freq = args['freq'];
+
+  var total = purchaseprice - down;
+
+  amortization = amortization * 12;
+  var c = (rate / 100) / 12;
+  console.log(c);
+  var payment = total * (c * Math.pow((1 + c), amortization));
+  console.log(payment);
+  payment = payment / (Math.pow((1 + c), amortization) - 1);
+  console.log(payment);
+
+  var converted;
+  var output;
+  if (freq == 'm') {
+    converted = payment;
+    output = "per month";
+  }
+  else if (freq == 'bw') {
+    converted = payment * 12 / 26;
+    output = "bi-weekly";
+
+  }
+  else if (freq == 'w') {
+    converted = payment * 12 / 52;
+    output = "per week";
+  }
+
+  converted = converted.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+  output = converted.toString() + " " + output;
+  var result = document.getElementById("result");
+  result.innerHTML = output;
 }
 
 function checkCalc(name) {
