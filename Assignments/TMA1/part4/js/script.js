@@ -31,7 +31,6 @@ function verifyInput() {
     // TODO:
   }
   else if (tabclicked == "mortgage") {
-    // TODO
     args['purchase'] = parseInt(args['purchase']);
     args['down'] = parseInt(args['down']);
     args['rate'] = parseFloat(args['rate']);
@@ -130,11 +129,8 @@ function calculateMortgage() {
 
   amortization = amortization * 12;
   var c = (rate / 100) / 12;
-  console.log(c);
   var payment = total * (c * Math.pow((1 + c), amortization));
-  console.log(payment);
   payment = payment / (Math.pow((1 + c), amortization) - 1);
-  console.log(payment);
 
   var converted;
   var output;
@@ -257,16 +253,41 @@ function listenUnit() {
 }
 
 function clearTDEE() {
-  var age = document.getElementsByName("age");
-  var weight = document.getElementsByName("weight");
-  age[0].value = "";
-  weight[0].value = "";
-  requiredinfo['age'] = false;
-  requiredinfo['weight'] = false;
-
+  var inputForms = ["age", "weight"];
+  for (var i = 0; i < inputForms.length; i++) {
+    var elem = document.getElementsByName(inputForms[i]);
+    elem[0].value = "";
+    requiredinfo[inputForms[i]] = false;
+  }
   var resultday = document.getElementById("resultday");
   var resultweek = document.getElementById("resultweek");
 
   resultday.innerHTML = "";
   resultweek.innerHTML = "";
+}
+
+function clearMortgage() {
+  var inputForms = ["purchase", "down", "rate", "amortization"];
+  for (var i = 0; i < inputForms.length; i++) {
+    var elem = document.getElementsByName(inputForms[i]);
+    elem[0].value = "";
+    requiredinfo[inputForms[i]] = false;
+  }
+
+  var result = document.getElementById("result");
+
+  result.innerHTML = "";
+}
+
+function clearUnit() {
+  var inputForms = ["original"]
+  for (var i = 0; i < inputForms.length; i++) {
+    var elem = document.getElementsByName(inputForms[i]);
+    elem[0].value = "";
+    requiredinfo[inputForms[i]] = false;
+  }
+
+  var result = document.getElementById("result");
+
+  result.innerHTML = "";
 }
