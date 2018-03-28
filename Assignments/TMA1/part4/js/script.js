@@ -164,35 +164,41 @@ function calculateUnit() {
   var measuretype = args['measuretype'];
 
   var base = original;
+  var multiplier = 1;
 
-  // TODO, take into account the degree (if volume, area or length)
+  if (measuretype == "a") {
+    multiplier = 2;
+  }
+  else if (measuretype == "v") {
+    multiplier = 3;
+  }
 
   if (origunit.toLowerCase() == "kilo") {
-    base = base * 1000;
+    base = base * Math.pow(1000, multiplier);
   }
   else if (origunit.toLowerCase() == "hecto") {
-    base = base * 100;
+    base = base * Math.pow(100, multiplier);
   }
   else if (origunit.toLowerCase() == "deka") {
-    base = base * 10;
+    base = base * Math.pow(10, multiplier);
   }
   else if (origunit.toLowerCase() == "meter") {
     base = base;
   }
   else if (origunit.toLowerCase() == "deci") {
-    base = base * 0.1;
+    base = base * Math.pow(0.1, multiplier);
   }
   else if (origunit.toLowerCase() == "centi") {
-    base = base * 0.01;
+    base = base * Math.pow(0.01, multiplier);
   }
   else if (origunit.toLowerCase() == "milli") {
-    base = base * 0.001;
+    base = base * Math.pow(0.001, multiplier);
   }
   else if (origunit.toLowerCase() == "micro") {
-    base = base * 0.00001;
+    base = base * Math.pow(0.000001, multiplier);
   }
   else if (origunit.toLowerCase() == "nano") {
-    base = base * 0.000000001;
+    base = base * Math.pow(0.000000001, multiplier);
   }
   else if (origunit.toLowerCase() == "pound") {
     // gram
@@ -208,40 +214,41 @@ function calculateUnit() {
     base = base;
   }
   else if (origunit.toLowerCase() == "inches") {
-    base = base * 0.0254;
+    base = base * Math.pow(0.0254, multiplier);
   }
   else if (origunit.toLowerCase() == "feet") {
-    base = base * 0.3048;
+    base = base * Mat.pow(0.3048, multiplier);
   }
 
+  console.log(base);
   var converted;
 
   if (convunit.toLowerCase() == "kilo") {
-    converted = base / 1000;
+    converted = base / Math.pow(1000, multiplier);
   }
   else if (convunit.toLowerCase() == "hecto") {
-    converted = base / 100;
+    converted = base / Math.pow(100, multiplier);
   }
   else if (convunit.toLowerCase() == "deka") {
-    converted = base / 10;
+    converted = base / Math.pow(10, multiplier);
   }
   else if (convunit.toLowerCase() == "meter") {
     converted = base;
   }
   else if (convunit.toLowerCase() == "deci") {
-    converted = base / 0.1;
+    converted = base / Math.pow(0.1, multiplier);
   }
   else if (convunit.toLowerCase() == "centi") {
-    converted = base / 0.01;
+    converted = base / Math.pow(0.01, multiplier);
   }
   else if (convunit.toLowerCase() == "milli") {
-    converted = base / 0.001;
+    converted = base / Math.pow(0.001, multiplier);
   }
   else if (convunit.toLowerCase() == "micro") {
-    converted = base / 0.00001;
+    converted = base / Math.pow(0.000001, multiplier);
   }
   else if (convunit.toLowerCase() == "nano") {
-    converted = base / 0.000000001;
+    converted = base / Math.pow(0.000000001, multiplier);
   }
   else if (convunit.toLowerCase() == "pound") {
     // gram
@@ -257,11 +264,12 @@ function calculateUnit() {
     converted = base;
   }
   else if (convunit.toLowerCase() == "inches") {
-    converted = base / 0.0254;
+    converted = base / Math.pow(0.0254, multiplier);
   }
   else if (convunit.toLowerCase() == "feet") {
-    converted = base / 0.3048;
+    converted = base / Math.pow(0.3048, multiplier);
   }
+  console.log(converted);
 
   var convresult = document.getElementById("converted");
   convresult.value = converted.toString().replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
@@ -401,9 +409,10 @@ function clearUnit() {
     requiredinfo[inputForms[i]] = false;
   }
 
-  var result = document.getElementById("result");
+  var result = document.getElementById("converted");
+  result.value = "";
 
-  result.innerHTML = "";
+  var conv
 }
 
 function enableAll() {

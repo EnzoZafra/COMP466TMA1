@@ -1,4 +1,4 @@
 part1 = 5 hrs
 part2 = 10 hrs
-part3 = 6 hrs + 30 min
-part 4 = 1 hr
+part3 = 6 hrs
+part4 = 7 hr
