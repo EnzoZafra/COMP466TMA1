@@ -80,7 +80,7 @@ function calculateTDEE() {
   var activity = args['activity'];
 
   var weight = convertWeight(weight);
-  var height = convertHeight(height);document
+  var height = convertHeight(height);
 
   if (gender == "f") {
     var bmr = 655 + (9.6 * weight) + (1.8 * height) - (4.7 * age);
@@ -105,8 +105,11 @@ function calculateTDEE() {
   else if (activity == "a") {
     tdee = bmr * 1.9;
   }
-  var result = document.getElementById("result");
-  result.innerHTML = Math.round(tdee).toString() + " per day";
+  var resultday = document.getElementById("resultday");
+  var resultweek = document.getElementById("resultweek");
+
+  resultday.innerHTML = Math.round(tdee).toString() + " per day";
+  resultweek.innerHTML = Math.round(tdee * 7).toString() + " per week";
 }
 
 function checkCalc(name) {
@@ -205,4 +208,19 @@ function listenUnit() {
     args['origunit'] = $(this).val();
     checkAllFilled();
   });
+}
+
+function clearTDEE() {
+  var age = document.getElementsByName("age");
+  var weight = document.getElementsByName("weight");
+  age[0].value = "";
+  weight[0].value = "";
+  requiredinfo['age'] = false;
+  requiredinfo['weight'] = false;
+
+  var resultday = document.getElementById("resultday");
+  var resultweek = document.getElementById("resultweek");
+
+  resultday.innerHTML = "";
+  resultweek.innerHTML = "";
 }
